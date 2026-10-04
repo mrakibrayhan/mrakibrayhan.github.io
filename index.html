@@ -4,19 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rakib Rayhan — ECE Undergraduate, North South University</title>
+<meta name="description" content="Rakib Rayhan — undergraduate ECE student at North South University specializing in RTL design, FPGA processor implementation, and hardware verification.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rakib Rayhan — ECE Undergraduate, North South University">
+<meta property="og:description" content="Undergraduate ECE student specializing in RTL design, FPGA processor implementation, and hardware verification.">
+<meta property="og:url" content="https://mrakibrayhan.github.io/">
+<meta property="og:image" content="https://mrakibrayhan.github.io/profile.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rakib Rayhan — ECE Undergraduate, North South University">
+<meta name="twitter:description" content="Undergraduate ECE student specializing in RTL design, FPGA processor implementation, and hardware verification.">
+<meta name="twitter:image" content="https://mrakibrayhan.github.io/profile.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230D131C'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='30' font-weight='700' fill='%232FD3C2' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0A0E14;
-    --bg2:#0F141C;
-    --card:#131A24;
-    --line:#232C39;
+    --bg:#070B12;
+    --bg2:#0D131C;
+    --card:#121923;
+    --line:#212B38;
     --text:#E7EAEE;
-    --muted:#92A0B3;
-    --accent:#C9A24B;
-    --accent-soft:#8A7336;
+    --muted:#90A0B4;
+    --accent:#2FD3C2;
+    --accent-soft:#F2A65A;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -34,12 +45,12 @@
   /* NAV */
   nav{
     position:sticky; top:0; z-index:50;
-    background:rgba(10,14,20,0.9);
+    background:rgba(7,11,18,0.88);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
   nav .inner{
-    max-width:980px; margin:0 auto; padding:18px 32px;
+    max-width:980px; margin:0 auto; padding:18px 32px; position:relative;
     display:flex; justify-content:space-between; align-items:center;
   }
   .brand{font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:19px; letter-spacing:-0.01em;}
@@ -50,12 +61,22 @@
     letter-spacing:0.06em; text-transform:uppercase; font-weight:500;
     transition:color .15s;
   }
-  .navlinks a:hover{color:var(--accent);}
+  .navlinks a:hover, .navlinks a.active{color:var(--accent);}
+
+  .navtoggle{
+    display:none; background:none; border:1px solid var(--line);
+    color:var(--text); width:38px; height:38px; cursor:pointer;
+    font-size:18px; line-height:1; align-items:center; justify-content:center;
+  }
 
   /* HERO */
   .hero{
     padding:92px 0 72px;
     display:grid; grid-template-columns:260px 1fr; gap:56px; align-items:center;
+    background:
+      radial-gradient(1100px 520px at 10% -10%, rgba(47,211,194,0.14), transparent 60%),
+      radial-gradient(900px 520px at 95% 0%, rgba(242,166,90,0.12), transparent 60%);
+    margin:0 -32px; padding-left:32px; padding-right:32px;
   }
   .hero img{
     width:260px; height:320px; object-fit:cover;
@@ -80,8 +101,8 @@
     border:1px solid var(--line); color:var(--text);
     transition:all .15s;
   }
-  .btn.primary{background:var(--accent); color:#0A0E14; border-color:var(--accent); font-weight:600;}
-  .btn.primary:hover{background:#D9B35E;}
+  .btn.primary{background:var(--accent); color:#071018; border-color:var(--accent); font-weight:600;}
+  .btn.primary:hover{background:#55E0D1;}
   .btn:not(.primary):hover{border-color:var(--accent); color:var(--accent);}
 
   /* SECTIONS */
@@ -127,6 +148,12 @@
     font-family:'JetBrains Mono', monospace; font-size:10.5px;
     color:var(--accent-soft); border:1px solid var(--line); padding:3px 8px;
   }
+  .pcard .plink{
+    display:inline-block; margin-top:14px;
+    font-family:'JetBrains Mono', monospace; font-size:12px;
+    color:var(--accent); text-decoration:none; border-bottom:1px solid transparent;
+  }
+  .pcard .plink:hover{border-bottom-color:var(--accent);}
   .ghost-card{
     border:1px dashed var(--line); padding:24px 26px;
     color:var(--muted); font-size:13.5px; font-family:'JetBrains Mono', monospace;
@@ -189,12 +216,27 @@
     font-family:'JetBrains Mono', monospace; font-size:11.5px; color:var(--muted);
   }
 
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.visible{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+  }
+
   @media (max-width:760px){
     .hero{grid-template-columns:1fr; text-align:left;}
     .hero img{width:180px; height:220px;}
     .about-grid, .pgrid, .stack-grid{grid-template-columns:1fr;}
-    .navlinks{display:none;}
     .hero h1{font-size:36px;}
+
+    .navtoggle{display:flex;}
+    .navlinks{
+      display:none; position:absolute; top:100%; left:0; right:0;
+      flex-direction:column; gap:0; background:var(--bg2);
+      border-bottom:1px solid var(--line); padding:8px 32px 16px;
+    }
+    .navlinks.open{display:flex;}
+    .navlinks a{padding:12px 0; border-bottom:1px solid var(--line);}
+    .navlinks li:last-child a{border-bottom:none;}
   }
 </style>
 </head>
@@ -203,7 +245,7 @@
 <nav>
   <div class="inner">
     <div class="brand">Rakib <span>Rayhan</span></div>
-    <ul class="navlinks">
+    <ul class="navlinks" id="navlinks">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
@@ -212,6 +254,7 @@
       <li><a href="#publications">Publications</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="navtoggle" id="navtoggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks">☰</button>
   </div>
 </nav>
 
@@ -241,12 +284,12 @@
         <p>I like problems where a design either works on the board or it doesn't — there's no ambiguity once it's on silicon.</p>
       </div>
       <div>
-        <div class="factcard">
+        <div class="factcard reveal">
           <div class="flabel">EDUCATION</div>
           <div class="fmain">BSc in Electrical and Computer Engineering (ECE)</div>
           <div class="fsub">North South University · 2022 – 2026 (Expected)</div>
         </div>
-        <div class="factcard">
+        <div class="factcard reveal">
           <div class="flabel">INTERESTS</div>
           <div class="tags">
             <span class="tag">FPGA</span>
@@ -267,49 +310,57 @@
 
     <div class="subhead">Recent Projects — FPGA / Processor Design</div>
     <div class="pgrid">
-      <div class="pcard">
+      <div class="pcard reveal">
         <h3>MIPS Single-Cycle CPU on FPGA</h3>
         <p>Designed and implemented a single-cycle MIPS CPU on a low-cost FPGA development board — the foundation that led into the multi-cycle and pipelined designs that followed.</p>
         <div class="ptags"><span>Verilog</span><span>MIPS ISA</span><span>FPGA</span></div>
+        <a class="plink" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View on GitHub &rarr;</a>
       </div>
-      <div class="pcard">
+      <div class="pcard reveal">
         <h3>MIPS Multi-Cycle CPU on FPGA — Thesis Project</h3>
         <p>RTL design and hardware verification of a multi-cycle MIPS processor on FPGA. Presented at the National Innovation Fair 2026.</p>
         <div class="ptags"><span>Verilog</span><span>RTL</span><span>Hardware Verification</span></div>
+        <a class="plink" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View on GitHub &rarr;</a>
       </div>
-      <div class="pcard">
+      <div class="pcard reveal">
         <h3>MIPS Pipelined CPU on FPGA</h3>
         <p>Extended the multi-cycle design into a pipelined MIPS CPU on a Cyclone IV FPGA board. Being considered for a journal publication.</p>
         <div class="ptags"><span>Verilog</span><span>Pipelining</span><span>Cyclone IV</span></div>
+        <a class="plink" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View on GitHub &rarr;</a>
       </div>
-      <div class="pcard">
+      <div class="pcard reveal">
         <h3>RISC-V Single-Cycle CPU — RV32I on FPGA</h3>
         <p>Implemented a single-cycle RISC-V CPU covering the RV32I base integer instruction set on FPGA, extending the processor-design work beyond MIPS.</p>
         <div class="ptags"><span>Verilog</span><span>RISC-V</span><span>RV32I</span></div>
+        <a class="plink" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View on GitHub &rarr;</a>
       </div>
     </div>
 
     <div class="subhead">Past Projects</div>
     <div class="pgrid">
-      <div class="pcard">
+      <div class="pcard reveal">
         <h3>Psychological Distress Self-Assessment via Machine Learning</h3>
         <p>Multi-class classification of anxiety, stress and depression levels in university students from survey data — full pipeline from preprocessing and EDA through modelling and hyperparameter tuning, benchmarked across 15 algorithms.</p>
         <div class="ptags"><span>Machine Learning</span><span>Classification</span><span>Python</span></div>
+        <a class="plink" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View on GitHub &rarr;</a>
       </div>
-      <div class="pcard">
+      <div class="pcard reveal">
         <h3>Knowledge Distillation for Rice Variety Classification</h3>
         <p>Fine-grained classification of 20 Bangladeshi rice varieties using a teacher–student knowledge-distillation framework: a ResNet50 teacher (98.59% accuracy) distilled into a lightweight custom CNN student (96.06% accuracy, 13.31× fewer parameters, 1.25 ms/image on GPU). Verified with Grad-CAM.</p>
         <div class="ptags"><span>Deep Learning</span><span>Knowledge Distillation</span><span>CNN</span><span>Grad-CAM</span></div>
+        <a class="plink" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View on GitHub &rarr;</a>
       </div>
-      <div class="pcard">
+      <div class="pcard reveal">
         <h3>SneakPick</h3>
         <p>A Django e-commerce web application for browsing and buying sneakers — product catalog, user accounts, cart, order tracking with shipping and delivery estimates, checkout/payment flow, promotions, and product reviews.</p>
         <div class="ptags"><span>Django</span><span>Python</span><span>Web Dev</span></div>
+        <a class="plink" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View on GitHub &rarr;</a>
       </div>
-      <div class="pcard">
+      <div class="pcard reveal">
         <h3>Custom Memory Allocator</h3>
         <p>A hand-built malloc/free implementation in C using real Linux system calls, with an optimized block-reuse strategy and thread-safe concurrent access — benchmarked against alternative reuse strategies and stress-tested under multi-threaded load.</p>
         <div class="ptags"><span>C</span><span>Linux Syscalls</span><span>Concurrency</span></div>
+        <a class="plink" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View on GitHub &rarr;</a>
       </div>
     </div>
   </section>
@@ -340,40 +391,40 @@
     <div class="seclabel">04 — JOURNEY</div>
     <h2 class="sechead">Timeline.</h2>
     <div class="timeline">
-      <div class="titem">
+      <div class="titem reveal">
         <div class="tyear">2022</div>
         <h3>Started BSc, Dept. of ECE</h3>
         <p>Began undergraduate studies in Electrical and Computer Engineering at North South University.</p>
       </div>
-      <div class="titem">
+      <div class="titem reveal">
         <div class="tyear">2023</div>
         <h3>BD Apps National Hackathon 2023</h3>
         <p>Participated and was selected to compete at the regional round.</p>
       </div>
-      <div class="titem">
+      <div class="titem reveal">
         <div class="tyear">2025</div>
         <h3>Organizer — Future Builders: AI-Driven Cognitive Innovation Hackathon</h3>
         <p>Helped organize this hackathon held at NSU, run by the IEEE NSU Student Branch.</p>
         <img class="journey-photo" src="hackathon.jpg" alt="Future Builders hackathon, organized with IEEE NSU Student Branch">
       </div>
-      <div class="titem">
+      <div class="titem reveal">
         <div class="tyear">2025</div>
         <h3>Organizer — Student Professional Awareness Conference (SPAC-25)</h3>
         <p>Helped organize SPAC-25, held by the IEEE NSU Student Branch.</p>
         <img class="journey-photo" src="spac.jpg" alt="Student Professional Awareness Conference (SPAC-25), organized with IEEE NSU Student Branch">
       </div>
-      <div class="titem">
+      <div class="titem reveal">
         <div class="tyear">2026</div>
         <h3>Undergraduate Thesis Defended</h3>
         <p>Successfully defended the undergraduate thesis on RTL design and hardware verification of a multi-cycle processor on FPGA.</p>
       </div>
-      <div class="titem">
+      <div class="titem reveal">
         <div class="tyear">2026</div>
         <h3>Bangladesh Innovation Fair 2026</h3>
         <p>Representing North South University as a member of the MESIL Lab, NSU.</p>
         <img class="journey-photo" src="innovation-fair.jpg" alt="NSU stall at the Bangladesh Innovation Fair 2026, MESIL Lab team">
       </div>
-      <div class="titem">
+      <div class="titem reveal">
         <div class="tyear">2026</div>
         <h3>Expected Graduation</h3>
         <p>Completing the BSc in Electrical and Computer Engineering at North South University.</p>
@@ -384,7 +435,7 @@
   <section id="publications">
     <div class="seclabel">05 — PUBLICATIONS</div>
     <h2 class="sechead">Currently under review.</h2>
-    <div class="pub-card">
+    <div class="pub-card reveal">
       <div>
         <h3>Multi-Cycle Processor — RTL Design and Hardware Verification on FPGA</h3>
         <p>Paper based on the thesis project, submitted to ICCIT 2026. Currently awaiting a decision.</p>
@@ -412,5 +463,54 @@
   </footer>
 
 </div>
+<script>
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navtoggle');
+  const navLinks = document.getElementById('navlinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Scroll-in reveal animation
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => revealObserver.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('visible'));
+  }
+
+  // Scroll-spy active nav highlighting
+  const sections = document.querySelectorAll('section[id], header[id]');
+  const navAnchors = document.querySelectorAll('.navlinks a');
+  if ('IntersectionObserver' in window) {
+    const spyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.getAttribute('id');
+        const link = document.querySelector('.navlinks a[href="#' + id + '"]');
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navAnchors.forEach(a => a.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    }, { threshold: 0, rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(sec => spyObserver.observe(sec));
+  }
+</script>
 </body>
 </html>
