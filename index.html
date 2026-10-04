@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rakib Rayhan — Electrical & Computer Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0E1B2B;
+    --paper:#EDF1F5;
+    --paper2:#E2E9F0;
+    --line:#C4D0DC;
+    --accent:#3F8FB8;
+    --accent2:#C97A3D;
+    --slate:#44536A;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:0 28px;}
+
+  /* subtle blueprint grid */
+  .grid-bg{
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:28px 28px;
+    background-position:-1px -1px;
+    opacity:0.35;
+    position:fixed; inset:0; z-index:-1;
+  }
+
+  header.hero{padding:96px 0 64px;}
+  .eyebrow-line{
+    display:flex; align-items:center; gap:14px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px; color:var(--slate);
+    margin-bottom:28px;
+  }
+  .eyebrow-line .tick{width:34px; height:1px; background:var(--slate);}
+
+  h1{
+    font-family:'IBM Plex Serif', serif;
+    font-weight:500;
+    font-size:46px;
+    line-height:1.15;
+    margin:0 0 10px;
+    letter-spacing:-0.01em;
+  }
+  .role{
+    font-size:18px;
+    color:var(--slate);
+    margin:0 0 36px;
+    max-width:520px;
+  }
+
+  .datapath{width:100%; height:auto; margin-top:12px;}
+  .datapath .node{fill:var(--paper); stroke:var(--ink); stroke-width:1.4;}
+  .datapath .wire{stroke:var(--ink); stroke-width:1.4; fill:none;}
+  .datapath .wire-accent{stroke:var(--accent); stroke-width:1.6; fill:none;}
+  .datapath text{font-family:'IBM Plex Mono', monospace; font-size:10.5px; fill:var(--slate);}
+
+  section{padding:52px 0; border-top:1px solid var(--line);}
+  h2{
+    font-family:'IBM Plex Serif', serif;
+    font-weight:500;
+    font-size:22px;
+    margin:0 0 22px;
+  }
+  .sec-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--accent);
+    letter-spacing:0.02em;
+    margin:0 0 6px;
+  }
+
+  p{color:var(--slate); margin:0 0 14px; max-width:600px;}
+
+  .project{
+    border:1px solid var(--line);
+    background:rgba(255,255,255,0.4);
+    padding:22px 24px;
+    margin-bottom:18px;
+  }
+  .project h3{
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:600;
+    font-size:16px;
+    margin:0 0 6px;
+    color:var(--ink);
+  }
+  .project .meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--accent2);
+    margin-bottom:10px;
+  }
+  .project p{margin:0; font-size:14.5px;}
+
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:10px 28px;
+  }
+  .skills-grid div{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px;
+    color:var(--ink);
+    border-bottom:1px solid var(--line);
+    padding:8px 0;
+  }
+
+  .contact-row{
+    display:flex; flex-wrap:wrap; gap:10px 28px;
+    margin-top:6px;
+  }
+  .contact-row a{
+    color:var(--ink);
+    text-decoration:none;
+    font-size:14.5px;
+    border-bottom:1px solid var(--accent);
+    padding-bottom:2px;
+  }
+  .contact-row a:hover{color:var(--accent);}
+
+  footer{
+    padding:40px 0 60px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--slate);
+  }
+
+  @media (max-width:560px){
+    h1{font-size:34px;}
+    header.hero{padding:64px 0 44px;}
+    .skills-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow-line"><span class="tick"></span>ECE · NORTH SOUTH UNIVERSITY</div>
+    <h1>Rakib Rayhan</h1>
+    <p class="role">4th-year Electrical &amp; Computer Engineering student working on processor design — RTL, hardware verification, and FPGA implementation.</p>
+
+    <svg class="datapath" viewBox="0 0 680 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Simplified processor datapath diagram">
+      <rect class="node" x="20" y="50" width="70" height="40"></rect>
+      <text x="55" y="74" text-anchor="middle">PC</text>
+
+      <path class="wire" d="M90 70 H130"></path>
+
+      <rect class="node" x="130" y="40" width="90" height="60"></rect>
+      <text x="175" y="74" text-anchor="middle">I-MEM</text>
+
+      <path class="wire" d="M220 70 H260"></path>
+
+      <rect class="node" x="260" y="20" width="100" height="40"></rect>
+      <text x="310" y="44" text-anchor="middle">CONTROL</text>
+
+      <rect class="node" x="260" y="80" width="100" height="40"></rect>
+      <text x="310" y="104" text-anchor="middle">REG FILE</text>
+
+      <path class="wire" d="M360 100 H400"></path>
+
+      <rect class="node" x="400" y="80" width="80" height="40"></rect>
+      <text x="440" y="104" text-anchor="middle">ALU</text>
+
+      <path class="wire-accent" d="M310 60 V80"></path>
+
+      <path class="wire" d="M480 100 H520"></path>
+
+      <rect class="node" x="520" y="80" width="90" height="40"></rect>
+      <text x="565" y="104" text-anchor="middle">D-MEM</text>
+
+      <path class="wire" d="M610 100 H650 V120"></path>
+      <path class="wire" d="M650 120 H30 V90"></path>
+    </svg>
+  </header>
+
+  <section id="about">
+    <p class="sec-label">01 — ABOUT</p>
+    <h2>Background</h2>
+    <p>I'm an undergraduate ECE student focused on digital systems and computer architecture — the layer between a processor's instruction set and the silicon that executes it. My recent work centers on building and verifying CPU datapaths directly on FPGA hardware, rather than only in simulation.</p>
+  </section>
+
+  <section id="projects">
+    <p class="sec-label">02 — PROJECTS</p>
+    <h2>Selected work</h2>
+
+    <div class="project">
+      <h3>Multi-Cycle Processor — RTL Design &amp; Hardware Verification</h3>
+      <div class="meta">FPGA · RTL · Verification — Thesis Project</div>
+      <p>Designed and verified a multi-cycle CPU implemented in RTL and deployed on a low-cost FPGA development board. Presented at the National Innovation Fair 2026.</p>
+    </div>
+
+    <div class="project">
+      <h3>Pipelined MIPS Processor</h3>
+      <div class="meta">Cyclone IV FPGA · MIPS Architecture</div>
+      <p>Built a pipelined CPU on the MIPS architecture as the next stage beyond the multi-cycle design, targeting a Cyclone IV FPGA board. Currently being considered for a journal publication.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <p class="sec-label">03 — SKILLS</p>
+    <h2>Tools &amp; areas</h2>
+    <div class="skills-grid">
+      <div>RTL Design (Verilog/VHDL)</div>
+      <div>FPGA Implementation</div>
+      <div>Computer Architecture</div>
+      <div>Hardware Verification</div>
+      <div>Digital Logic Design</div>
+      <div>MIPS / Pipelined CPUs</div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <p class="sec-label">04 — CONTACT</p>
+    <h2>Get in touch</h2>
+    <p>Open to discussing research, collaboration, or opportunities in digital design and computer architecture.</p>
+    <div class="contact-row">
+      <a href="mailto:rakib.rayhan@northsouth.edu">Email</a>
+      <a href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/rakib-rayhan-15122000j" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Rakib Rayhan — built &amp; hosted on GitHub Pages
+  </footer>
+
+</div>
+</body>
+</html>
