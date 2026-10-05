@@ -3,31 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rakib Rayhan — ECE Undergraduate, North South University</title>
-<meta name="description" content="Rakib Rayhan — undergraduate ECE student at North South University specializing in RTL design, FPGA processor implementation, and hardware verification.">
+<title>Rakib Rayhan — CSE Undergraduate, North South University</title>
+<meta name="description" content="Rakib Rayhan — undergraduate Computer Science and Engineering (CSE) student at North South University specializing in RTL design, FPGA processor implementation, and hardware verification.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Rakib Rayhan — ECE Undergraduate, North South University">
-<meta property="og:description" content="Undergraduate ECE student specializing in RTL design, FPGA processor implementation, and hardware verification.">
+<meta property="og:title" content="Rakib Rayhan — CSE Undergraduate, North South University">
+<meta property="og:description" content="Undergraduate CSE student specializing in RTL design, FPGA processor implementation, and hardware verification.">
 <meta property="og:url" content="https://mrakibrayhan.github.io/">
 <meta property="og:image" content="https://mrakibrayhan.github.io/profile.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Rakib Rayhan — ECE Undergraduate, North South University">
-<meta name="twitter:description" content="Undergraduate ECE student specializing in RTL design, FPGA processor implementation, and hardware verification.">
+<meta name="twitter:title" content="Rakib Rayhan — CSE Undergraduate, North South University">
+<meta name="twitter:description" content="Undergraduate CSE student specializing in RTL design, FPGA processor implementation, and hardware verification.">
 <meta name="twitter:image" content="https://mrakibrayhan.github.io/profile.jpg">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230D131C'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='30' font-weight='700' fill='%232FD3C2' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F1F1A'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='30' font-weight='700' fill='%23E0954D' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#070B12;
-    --bg2:#0D131C;
-    --card:#121923;
-    --line:#212B38;
-    --text:#E7EAEE;
-    --muted:#90A0B4;
-    --accent:#2FD3C2;
-    --accent-soft:#F2A65A;
+    --bg:#0B1612;
+    --bg2:#0F1F1A;
+    --card:#142821;
+    --line:#26392F;
+    --text:#F3F5F2;
+    --muted:#9FB3A9;
+    --accent:#E0954D;
+    --accent-soft:#6FA98C;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -47,11 +47,12 @@
   nav, .wrap{position:relative; z-index:1;}
 
   h1,h2,h3{font-family:'Space Grotesk', sans-serif; margin:0;}
+  h1,.sechead{text-wrap:balance;}
 
   /* NAV */
   nav{
     position:sticky; top:0; z-index:50;
-    background:rgba(7,11,18,0.88);
+    background:rgba(11,22,18,0.88);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
@@ -69,6 +70,13 @@
   }
   .navlinks a:hover, .navlinks a.active{color:var(--accent);}
 
+  .nav-indicator{
+    position:absolute; bottom:0; height:2px; left:0; width:0;
+    background:var(--accent); border-radius:2px;
+    transition:left .35s cubic-bezier(.22,1,.36,1), width .35s cubic-bezier(.22,1,.36,1), opacity .2s;
+    opacity:0;
+  }
+
   .navtoggle{
     display:none; background:none; border:1px solid var(--line);
     color:var(--text); width:38px; height:38px; cursor:pointer;
@@ -80,8 +88,8 @@
     padding:92px 0 72px;
     display:grid; grid-template-columns:260px 1fr; gap:56px; align-items:center;
     background:
-      radial-gradient(1100px 520px at 10% -10%, rgba(47,211,194,0.14), transparent 60%),
-      radial-gradient(900px 520px at 95% 0%, rgba(242,166,90,0.12), transparent 60%);
+      radial-gradient(1100px 520px at 10% -10%, rgba(224,149,77,0.12), transparent 60%),
+      radial-gradient(900px 520px at 95% 0%, rgba(111,169,140,0.10), transparent 60%);
     margin:0 -32px; padding-left:32px; padding-right:32px;
   }
   .hero img{
@@ -95,20 +103,38 @@
   }
   .hero h1{font-size:48px; line-height:1.1; margin-bottom:10px;}
   .hero .role{font-size:17px; color:var(--muted); margin-bottom:20px; max-width:480px;}
-  .tagscroll{
-    font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--accent-soft);
-    margin-bottom:24px; letter-spacing:0.03em;
+  .skill-badges{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px;}
+  .skill-badges span{
+    font-family:'JetBrains Mono', monospace; font-size:11.5px; color:var(--accent-soft);
+    border:1px solid var(--line); background:rgba(111,169,140,0.07);
+    padding:6px 13px; border-radius:20px; letter-spacing:0.03em;
   }
   .hero p.pitch{color:var(--muted); font-size:15px; max-width:520px; margin-bottom:26px;}
   .btnrow{display:flex; gap:14px;}
+
+  .stats-row{
+    display:flex; flex-wrap:wrap; gap:36px;
+    margin-top:36px; padding-top:28px; border-top:1px solid var(--line);
+    max-width:480px;
+  }
+  .stat .num{
+    font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:27px;
+    color:var(--accent); line-height:1;
+  }
+  .stat .label{
+    font-family:'JetBrains Mono', monospace; font-size:10.5px; color:var(--muted);
+    letter-spacing:0.04em; text-transform:uppercase; margin-top:7px; max-width:140px;
+  }
+
+  .hl{color:var(--accent); font-weight:600;}
   .btn{
     font-family:'JetBrains Mono', monospace; font-size:12.5px; font-weight:500;
     letter-spacing:0.04em; text-decoration:none; padding:12px 20px;
     border:1px solid var(--line); color:var(--text);
     transition:all .15s;
   }
-  .btn.primary{background:var(--accent); color:#071018; border-color:var(--accent); font-weight:600;}
-  .btn.primary:hover{background:#55E0D1;}
+  .btn.primary{background:var(--accent); color:#0B1612; border-color:var(--accent); font-weight:600;}
+  .btn.primary:hover{background:#F0A868;}
   .btn:not(.primary):hover{border-color:var(--accent); color:var(--accent);}
 
   /* SECTIONS */
@@ -124,13 +150,14 @@
   .about-grid p{color:var(--muted); font-size:15px; margin-bottom:16px;}
   .factcard{
     background:var(--card); border:1px solid var(--line); padding:22px 24px; margin-bottom:16px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.22);
   }
   .factcard .flabel{
     font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--accent);
     letter-spacing:0.08em; margin-bottom:10px;
   }
   .factcard .fmain{font-weight:600; font-size:15px; margin-bottom:3px;}
-  .factcard .fsub{color:var(--muted); font-size:13.5px;}
+  .factcard .fsub{color:var(--muted); font-size:13.5px; margin-top:2px;}
   .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;}
   .tag{
     font-family:'JetBrains Mono', monospace; font-size:11.5px;
@@ -146,7 +173,17 @@
   .pgrid{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
   .pcard{
     background:var(--card); border:1px solid var(--line); padding:24px 26px;
+    position:relative; overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,0.22);
+    transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease;
   }
+  .pcard:hover{transform:translateY(-3px); box-shadow:0 14px 28px rgba(0,0,0,0.3); border-color:#3A4F43;}
+  .pcard::before{
+    content:''; position:absolute; inset:0; pointer-events:none;
+    background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(224,149,77,0.13), transparent 65%);
+    opacity:0; transition:opacity .25s ease;
+  }
+  .pcard:hover::before{opacity:1;}
   .pcard h3{font-size:16.5px; margin-bottom:10px;}
   .pcard p{color:var(--muted); font-size:14px; margin-bottom:14px;}
   .pcard .ptags{display:flex; flex-wrap:wrap; gap:6px;}
@@ -177,6 +214,11 @@
 
   /* JOURNEY */
   .timeline{border-left:1px solid var(--line); padding-left:28px; position:relative;}
+  .timeline-progress{
+    position:absolute; left:-1px; top:0; width:2px; height:0%;
+    background:var(--accent); box-shadow:0 0 8px rgba(224,149,77,0.55);
+    transition:height .12s linear;
+  }
   .titem{margin-bottom:34px; position:relative;}
   .titem:last-child{margin-bottom:0;}
   .titem::before{
@@ -194,6 +236,7 @@
   .pub-card{
     background:var(--card); border:1px solid var(--line); padding:24px 26px;
     display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap;
+    box-shadow:0 8px 20px rgba(0,0,0,0.22);
   }
   .pub-card h3{font-size:16px; margin-bottom:8px;}
   .pub-card p{color:var(--muted); font-size:14px; margin:0; max-width:560px;}
@@ -222,7 +265,7 @@
     font-family:'JetBrains Mono', monospace; font-size:11.5px; color:var(--muted);
   }
 
-  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1);}
   .reveal.visible{opacity:1; transform:translateY(0);}
   @media (prefers-reduced-motion: reduce){
     .reveal{opacity:1; transform:none; transition:none;}
@@ -262,6 +305,7 @@
       <li><a href="#publications">Publications</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <span class="nav-indicator" id="navIndicator"></span>
     <button class="navtoggle" id="navtoggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks">☰</button>
   </div>
 </nav>
@@ -273,28 +317,36 @@
     <div>
       <h1>Rakib Rayhan</h1>
       <div class="role">Undergraduate Student, North South University</div>
-      <div class="tagscroll">FPGA &nbsp;·&nbsp; RTL DESIGN &nbsp;·&nbsp; EDA &nbsp;·&nbsp; COMPUTER ARCHITECTURE &nbsp;·&nbsp; AI &nbsp;·&nbsp; MACHINE LEARNING</div>
-      <p class="pitch">Specializing in RTL design, I build and verify processors as working hardware on FPGAs — not merely in simulation — and I'm extending that foundation toward how intelligent systems can be implemented closer to silicon.</p>
+      <div class="skill-badges">
+        <span>FPGA</span><span>RTL Design</span><span>EDA</span><span>Computer Architecture</span><span>AI</span><span>Machine Learning</span>
+      </div>
+      <p class="pitch">Specializing in <span class="hl">RTL design</span>, I build and verify processors as working hardware on FPGAs — not merely in simulation — and I'm extending that foundation toward how intelligent systems can be implemented closer to silicon.</p>
       <div class="btnrow">
         <a href="#projects" class="btn primary">View Projects</a>
         <a href="#contact" class="btn">Get in Touch</a>
+      </div>
+      <div class="stats-row">
+        <div class="stat"><div class="num">4</div><div class="label">FPGA Processor Builds</div></div>
+        <div class="stat"><div class="num">1</div><div class="label">Paper Submitted · ICCIT 2026</div></div>
+        <div class="stat"><div class="num">2</div><div class="label">Conferences Organized</div></div>
       </div>
     </div>
   </header>
 
   <section id="about">
     <div class="seclabel">01 — ABOUT</div>
-    <h2 class="sechead">Designing hardware where machine learning will eventually run.</h2>
+    <h2 class="sechead">Designing hardware where <span class="hl">machine learning</span> will eventually run.</h2>
     <div class="about-grid">
       <div>
-        <p>I'm an undergraduate student in the Department of Electrical and Computer Engineering (ECE) at North South University, focused on digital systems and computer architecture. My work centers on Field-Programmable Gate Arrays (FPGAs) — building processors as real, synthesizable hardware and verifying them against the behavior they're meant to implement, rather than stopping at simulation.</p>
+        <p>I'm an undergraduate student in the Department of Electrical and Computer Engineering (ECE) at North South University, majoring in Computer Science and Engineering (CSE), focused on digital systems and computer architecture. My work centers on Field-Programmable Gate Arrays (FPGAs) — building processors as real, synthesizable hardware and verifying them against the behavior they're meant to implement, rather than stopping at simulation.</p>
         <p>Alongside RTL design and Electronic Design Automation (EDA) workflows, I'm increasingly interested in Artificial Intelligence and Machine Learning — specifically how learned models eventually have to run on real, resource-constrained hardware, and what that implies for the architectures underneath them. My thesis work on a multi-cycle processor, and its extension into a pipelined design, is the foundation for that direction.</p>
         <p>I like problems where a design either works on the board or it doesn't — there's no ambiguity once it's on silicon.</p>
       </div>
       <div>
         <div class="factcard reveal">
           <div class="flabel">EDUCATION</div>
-          <div class="fmain">BSc in Electrical and Computer Engineering (ECE)</div>
+          <div class="fmain">BSc in Computer Science and Engineering (CSE)</div>
+          <div class="fsub">Dept. of Electrical and Computer Engineering (ECE)</div>
           <div class="fsub">North South University · 2022 – 2026 (Expected)</div>
         </div>
         <div class="factcard reveal">
@@ -354,7 +406,7 @@
       </div>
       <div class="pcard reveal">
         <h3>Knowledge Distillation for Rice Variety Classification</h3>
-        <p>Fine-grained classification of 20 Bangladeshi rice varieties using a teacher–student knowledge-distillation framework: a ResNet50 teacher (98.59% accuracy) distilled into a lightweight custom CNN student (96.06% accuracy, 13.31× fewer parameters, 1.25 ms/image on GPU). Verified with Grad-CAM.</p>
+        <p>Fine-grained classification of 20 Bangladeshi rice varieties using a teacher–student knowledge-distillation framework: a ResNet50 teacher (<span class="hl">98.59% accuracy</span>) distilled into a lightweight custom CNN student (<span class="hl">96.06% accuracy</span>, <span class="hl">13.31× fewer parameters</span>, 1.25 ms/image on GPU). Verified with Grad-CAM.</p>
         <div class="ptags"><span>Deep Learning</span><span>Knowledge Distillation</span><span>CNN</span><span>Grad-CAM</span></div>
         <a class="plink" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View on GitHub &rarr;</a>
       </div>
@@ -399,10 +451,11 @@
     <div class="seclabel">04 — JOURNEY</div>
     <h2 class="sechead">Timeline.</h2>
     <div class="timeline">
+      <div class="timeline-progress" id="timelineProgress"></div>
       <div class="titem reveal">
         <div class="tyear">2022</div>
         <h3>Started BSc, Dept. of ECE</h3>
-        <p>Began undergraduate studies in Electrical and Computer Engineering at North South University.</p>
+        <p>Began undergraduate studies in Computer Science and Engineering (CSE), Dept. of ECE, at North South University.</p>
       </div>
       <div class="titem reveal">
         <div class="tyear">2023</div>
@@ -435,7 +488,7 @@
       <div class="titem reveal">
         <div class="tyear">2026</div>
         <h3>Expected Graduation</h3>
-        <p>Completing the BSc in Electrical and Computer Engineering at North South University.</p>
+        <p>Completing the BSc in Computer Science and Engineering (CSE), Dept. of ECE, at North South University.</p>
       </div>
     </div>
   </section>
@@ -467,7 +520,7 @@
 
   <footer>
     <div>© 2026 Rakib Rayhan</div>
-    <div>ECE · NORTH SOUTH UNIVERSITY</div>
+    <div>CSE · NORTH SOUTH UNIVERSITY</div>
   </footer>
 
 </div>
@@ -547,12 +600,12 @@
       sctx.clearRect(0, 0, w, h);
 
       // faint die floorplan blocks
-      sctx.strokeStyle = 'rgba(47,211,194,0.07)';
+      sctx.strokeStyle = 'rgba(111,169,140,0.10)';
       sctx.lineWidth = 1;
       blocks.forEach(b => sctx.strokeRect(b.x + 0.5, b.y + 0.5, b.w, b.h));
 
       // Manhattan trace lines
-      sctx.strokeStyle = 'rgba(47,211,194,0.11)';
+      sctx.strokeStyle = 'rgba(111,169,140,0.14)';
       sctx.lineWidth = 1;
       paths.forEach(p => {
         sctx.beginPath();
@@ -560,13 +613,13 @@
         sctx.stroke();
         // vias at turns
         p.pts.forEach(pt => {
-          sctx.fillStyle = 'rgba(47,211,194,0.18)';
+          sctx.fillStyle = 'rgba(224,149,77,0.22)';
           sctx.fillRect(pt.x - 1.5, pt.y - 1.5, 3, 3);
         });
       });
 
       // faint grid dots
-      sctx.fillStyle = 'rgba(144,160,180,0.06)';
+      sctx.fillStyle = 'rgba(243,245,242,0.05)';
       for (let gx = 0; gx < w; gx += GRID) {
         for (let gy = 0; gy < h; gy += GRID) {
           sctx.fillRect(gx, gy, 1, 1);
@@ -583,18 +636,23 @@
       drawStatic();
     }
 
+    function easeInOutQuad(x) {
+      return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+    }
+
     function drawFrame() {
       ctx.clearRect(0, 0, w, h);
       ctx.drawImage(staticCanvas, 0, 0);
 
       paths.forEach(p => {
-        if (p.progress <= 1) {
-          const color = p.amber ? '242,166,90' : '47,211,194';
+        if (p.progress >= 0 && p.progress <= 1) {
+          const color = p.amber ? '224,149,77' : '111,169,140';
+          const edgeFade = Math.min(1, p.progress / 0.08, (1 - p.progress) / 0.08);
           for (let k = 0; k < 4; k++) {
             const t = p.progress - k * 0.035;
             if (t < 0) continue;
-            const pt = pointAtT(p, t);
-            const alpha = (1 - k / 4) * 0.85;
+            const pt = pointAtT(p, easeInOutQuad(Math.min(1, t)));
+            const alpha = (1 - k / 4) * 0.85 * edgeFade;
             ctx.fillStyle = `rgba(${color},${alpha})`;
             ctx.beginPath();
             ctx.arc(pt.x, pt.y, k === 0 ? 2.2 : 1.3, 0, Math.PI * 2);
@@ -636,8 +694,13 @@
     });
   });
 
-  // Scroll-in reveal animation
+  // Scroll-in reveal animation, staggered per sibling group for a cascading entrance
   const revealEls = document.querySelectorAll('.reveal');
+  revealEls.forEach(el => {
+    const siblings = Array.from(el.parentElement.children).filter(c => c.classList.contains('reveal'));
+    const idx = siblings.indexOf(el);
+    el.style.transitionDelay = (idx % 4) * 90 + 'ms';
+  });
   if ('IntersectionObserver' in window) {
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -652,9 +715,18 @@
     revealEls.forEach(el => el.classList.add('visible'));
   }
 
-  // Scroll-spy active nav highlighting
+  // Scroll-spy active nav highlighting, with sliding indicator
   const sections = document.querySelectorAll('section[id], header[id]');
   const navAnchors = document.querySelectorAll('.navlinks a');
+  const navIndicator = document.getElementById('navIndicator');
+
+  function moveIndicator(link) {
+    if (!link || !navIndicator || window.innerWidth <= 760) return;
+    navIndicator.style.left = link.offsetLeft + 'px';
+    navIndicator.style.width = link.offsetWidth + 'px';
+    navIndicator.style.opacity = '1';
+  }
+
   if ('IntersectionObserver' in window) {
     const spyObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -664,11 +736,37 @@
         if (entry.isIntersecting) {
           navAnchors.forEach(a => a.classList.remove('active'));
           link.classList.add('active');
+          moveIndicator(link);
         }
       });
     }, { threshold: 0, rootMargin: '-45% 0px -50% 0px' });
     sections.forEach(sec => spyObserver.observe(sec));
   }
+  window.addEventListener('resize', () => moveIndicator(document.querySelector('.navlinks a.active')));
+
+  // Self-drawing timeline progress line
+  const timelineEl = document.querySelector('.timeline');
+  const timelineProgress = document.getElementById('timelineProgress');
+  function updateTimelineProgress() {
+    if (!timelineEl || !timelineProgress) return;
+    const rect = timelineEl.getBoundingClientRect();
+    const trigger = window.innerHeight * 0.75;
+    let progress = (trigger - rect.top) / rect.height;
+    progress = Math.max(0, Math.min(1, progress));
+    timelineProgress.style.height = (progress * 100) + '%';
+  }
+  window.addEventListener('scroll', () => requestAnimationFrame(updateTimelineProgress), { passive: true });
+  window.addEventListener('resize', updateTimelineProgress);
+  updateTimelineProgress();
+
+  // Cursor-following glow on project cards
+  document.querySelectorAll('.pcard').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100) + '%');
+      card.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100) + '%');
+    });
+  });
 </script>
 </body>
 </html>
