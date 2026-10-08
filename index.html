@@ -46,6 +46,12 @@
   }
   nav, .wrap{position:relative; z-index:1;}
 
+  #spotlight{
+    position:fixed; inset:0; z-index:0; pointer-events:none; opacity:0;
+    background:radial-gradient(420px circle at var(--sx,50%) var(--sy,50%), rgba(224,149,77,0.07), transparent 70%);
+    transition:opacity .4s ease;
+  }
+
   h1,h2,h3{font-family:'Space Grotesk', sans-serif; margin:0;}
   h1,.sechead{text-wrap:balance;}
 
@@ -59,8 +65,12 @@
   nav .inner{
     max-width:980px; margin:0 auto; padding:18px 32px; position:relative;
     display:flex; justify-content:space-between; align-items:center;
+    transition:padding .25s ease;
   }
-  .brand{font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:19px; letter-spacing:-0.01em;}
+  nav.scrolled .inner{padding:11px 32px;}
+  nav.scrolled{box-shadow:0 8px 20px rgba(0,0,0,0.25);}
+  .brand{font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:19px; letter-spacing:-0.01em; transition:font-size .25s ease;}
+  nav.scrolled .brand{font-size:17px;}
   .brand span{color:var(--accent);}
   .navlinks{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
   .navlinks a{
@@ -96,7 +106,10 @@
     width:260px; height:320px; object-fit:cover;
     border:1px solid var(--line);
     filter:grayscale(15%);
+    transition:transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease;
+    will-change:transform;
   }
+  .hero img:hover{box-shadow:0 20px 40px rgba(0,0,0,0.4);}
   .kicker{
     font-family:'JetBrains Mono', monospace; font-size:12.5px;
     color:var(--accent); letter-spacing:0.08em; margin-bottom:18px;
@@ -113,15 +126,18 @@
   .btnrow{display:flex; gap:14px;}
 
   .hl{color:var(--accent); font-weight:600;}
+  .counter{font-variant-numeric:tabular-nums;}
   .btn{
+    display:inline-block;
     font-family:'JetBrains Mono', monospace; font-size:12.5px; font-weight:500;
     letter-spacing:0.04em; text-decoration:none; padding:12px 20px;
     border:1px solid var(--line); color:var(--text);
-    transition:all .15s;
+    transition:background .15s, color .15s, border-color .15s, transform .2s cubic-bezier(.22,1,.36,1), box-shadow .2s ease;
   }
+  .btn:hover{transform:translateY(-2px);}
   .btn.primary{background:var(--accent); color:#0B1612; border-color:var(--accent); font-weight:600;}
-  .btn.primary:hover{background:#F0A868;}
-  .btn:not(.primary):hover{border-color:var(--accent); color:var(--accent);}
+  .btn.primary:hover{background:#F0A868; box-shadow:0 10px 24px rgba(224,149,77,0.28);}
+  .btn:not(.primary):hover{border-color:var(--accent); color:var(--accent); box-shadow:0 10px 20px rgba(0,0,0,0.25);}
 
   /* SECTIONS */
   section{padding:68px 0; border-top:1px solid var(--line);}
@@ -278,6 +294,7 @@
 <body>
 
 <canvas id="bg-canvas"></canvas>
+<div id="spotlight"></div>
 
 <nav>
   <div class="inner">
@@ -388,7 +405,7 @@
       </div>
       <div class="pcard reveal">
         <h3>Knowledge Distillation for Rice Variety Classification</h3>
-        <p>Fine-grained classification of 20 Bangladeshi rice varieties using a teacher–student knowledge-distillation framework: a ResNet50 teacher (<span class="hl">98.59% accuracy</span>) distilled into a lightweight custom CNN student (<span class="hl">96.06% accuracy</span>, <span class="hl">13.31× fewer parameters</span>, 1.25 ms/image on GPU). Verified with Grad-CAM.</p>
+        <p>Fine-grained classification of 20 Bangladeshi rice varieties using a teacher–student knowledge-distillation framework: a ResNet50 teacher (<span class="hl"><span class="counter" data-target="98.59" data-suffix="%">0%</span> accuracy</span>) distilled into a lightweight custom CNN student (<span class="hl"><span class="counter" data-target="96.06" data-suffix="%">0%</span> accuracy</span>, <span class="hl"><span class="counter" data-target="13.31" data-suffix="×">0×</span> fewer parameters</span>, 1.25 ms/image on GPU). Verified with Grad-CAM.</p>
         <div class="ptags"><span>Deep Learning</span><span>Knowledge Distillation</span><span>CNN</span><span>Grad-CAM</span></div>
         <a class="plink" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View on GitHub &rarr;</a>
       </div>
@@ -661,6 +678,70 @@
       requestAnimationFrame(step);
     }
   })();
+
+  // Cursor-following spotlight
+  const spotlightEl = document.getElementById('spotlight');
+  window.addEventListener('mousemove', (e) => {
+    spotlightEl.style.setProperty('--sx', e.clientX + 'px');
+    spotlightEl.style.setProperty('--sy', e.clientY + 'px');
+    spotlightEl.style.opacity = '1';
+  }, { passive: true });
+  window.addEventListener('mouseleave', () => { spotlightEl.style.opacity = '0'; });
+
+  // Nav compacting on scroll
+  const navEl = document.querySelector('nav');
+  function handleNavScroll() {
+    if (window.scrollY > 40) navEl.classList.add('scrolled');
+    else navEl.classList.remove('scrolled');
+  }
+  window.addEventListener('scroll', handleNavScroll, { passive: true });
+  handleNavScroll();
+
+  // 3D tilt on hero photo
+  const heroImg = document.querySelector('.hero img');
+  if (heroImg && window.matchMedia('(hover: hover)').matches) {
+    heroImg.addEventListener('mousemove', (e) => {
+      const rect = heroImg.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width - 0.5;
+      const py = (e.clientY - rect.top) / rect.height - 0.5;
+      heroImg.style.transform = `perspective(700px) rotateY(${px * 12}deg) rotateX(${-py * 12}deg) scale(1.03)`;
+    });
+    heroImg.addEventListener('mouseleave', () => {
+      heroImg.style.transform = 'perspective(700px) rotateY(0deg) rotateX(0deg) scale(1)';
+    });
+  }
+
+  // Animated count-up numbers
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function animateCounter(el) {
+    const target = parseFloat(el.dataset.target);
+    const suffix = el.dataset.suffix || '';
+    if (prefersReducedMotion) { el.textContent = target + suffix; return; }
+    const duration = 1100;
+    const startTime = performance.now();
+    function tick(now) {
+      const t = Math.min(1, (now - startTime) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = (target * eased).toFixed(2) + suffix;
+      if (t < 1) requestAnimationFrame(tick);
+      else el.textContent = target + suffix;
+    }
+    requestAnimationFrame(tick);
+  }
+  const counterEls = document.querySelectorAll('.counter');
+  if ('IntersectionObserver' in window) {
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.6 });
+    counterEls.forEach(el => counterObserver.observe(el));
+  } else {
+    counterEls.forEach(el => animateCounter(el));
+  }
 
   // Mobile nav toggle
   const navToggle = document.getElementById('navtoggle');
