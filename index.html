@@ -28,12 +28,15 @@
     --muted:#9FB3A9;
     --accent:#E0954D;
     --accent-soft:#6FA98C;
+    --glass:rgba(20,40,33,0.58);
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     margin:0;
-    background:var(--bg);
+    background:
+      radial-gradient(1400px 900px at 50% -12%, rgba(255,255,255,0.04), transparent 60%),
+      var(--bg);
     color:var(--text);
     font-family:'Inter', sans-serif;
     line-height:1.65;
@@ -46,21 +49,17 @@
   }
   nav, .wrap{position:relative; z-index:1;}
 
-  #spotlight{
-    position:fixed; inset:0; z-index:0; pointer-events:none; opacity:0;
-    background:radial-gradient(420px circle at var(--sx,50%) var(--sy,50%), rgba(224,149,77,0.07), transparent 70%);
-    transition:opacity .4s ease;
-  }
-
   h1,h2,h3{font-family:'Space Grotesk', sans-serif; margin:0;}
   h1,.sechead{text-wrap:balance;}
 
   /* NAV */
   nav{
     position:sticky; top:0; z-index:50;
-    background:rgba(11,22,18,0.88);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
+    background:rgba(11,22,18,0.78);
+    backdrop-filter:blur(14px) saturate(140%);
+    -webkit-backdrop-filter:blur(14px) saturate(140%);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);
   }
   nav .inner{
     max-width:980px; margin:0 auto; padding:18px 32px; position:relative;
@@ -102,14 +101,22 @@
       radial-gradient(900px 520px at 95% 0%, rgba(111,169,140,0.10), transparent 60%);
     margin:0 -32px; padding-left:32px; padding-right:32px;
   }
-  .hero img{
-    width:260px; height:320px; object-fit:cover;
-    border:1px solid var(--line);
-    filter:grayscale(15%);
+  .photo-frame{
+    position:relative; width:260px; height:320px;
+    border:1px solid rgba(255,255,255,0.1);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.1),
+      0 2px 4px rgba(0,0,0,0.25),
+      0 18px 36px rgba(0,0,0,0.4);
     transition:transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease;
     will-change:transform;
   }
-  .hero img:hover{box-shadow:0 20px 40px rgba(0,0,0,0.4);}
+  .photo-frame:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,0.14), 0 4px 8px rgba(0,0,0,0.3), 0 28px 50px rgba(0,0,0,0.5);}
+  .photo-frame img{width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(15%);}
+  .photo-sheen{
+    position:absolute; inset:0; pointer-events:none;
+    background:linear-gradient(135deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.03) 30%, transparent 55%);
+  }
   .kicker{
     font-family:'JetBrains Mono', monospace; font-size:12.5px;
     color:var(--accent); letter-spacing:0.08em; margin-bottom:18px;
@@ -119,7 +126,9 @@
   .skill-badges{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px;}
   .skill-badges span{
     font-family:'JetBrains Mono', monospace; font-size:11.5px; color:var(--accent-soft);
-    border:1px solid var(--line); background:rgba(111,169,140,0.07);
+    border:1px solid rgba(255,255,255,0.08); background:rgba(111,169,140,0.09);
+    backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.06);
     padding:6px 13px; border-radius:20px; letter-spacing:0.03em;
   }
   .hero p.pitch{color:var(--muted); font-size:15px; max-width:520px; margin-bottom:26px;}
@@ -131,13 +140,22 @@
     display:inline-block;
     font-family:'JetBrains Mono', monospace; font-size:12.5px; font-weight:500;
     letter-spacing:0.04em; text-decoration:none; padding:12px 20px;
-    border:1px solid var(--line); color:var(--text);
+    border:1px solid rgba(255,255,255,0.08); color:var(--text);
+    background:linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0));
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.06), 0 1px 2px rgba(0,0,0,0.2);
     transition:background .15s, color .15s, border-color .15s, transform .2s cubic-bezier(.22,1,.36,1), box-shadow .2s ease;
   }
   .btn:hover{transform:translateY(-2px);}
-  .btn.primary{background:var(--accent); color:#0B1612; border-color:var(--accent); font-weight:600;}
-  .btn.primary:hover{background:#F0A868; box-shadow:0 10px 24px rgba(224,149,77,0.28);}
-  .btn:not(.primary):hover{border-color:var(--accent); color:var(--accent); box-shadow:0 10px 20px rgba(0,0,0,0.25);}
+  .btn.primary{
+    background:linear-gradient(180deg, #ECA568, var(--accent));
+    color:#2A1403; border-color:rgba(255,255,255,0.25); font-weight:600;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -2px 5px rgba(0,0,0,0.12), 0 8px 18px rgba(224,149,77,0.22);
+  }
+  .btn.primary:hover{
+    background:linear-gradient(180deg, #F2B37C, #EBA05F);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.45), inset 0 -2px 5px rgba(0,0,0,0.12), 0 12px 26px rgba(224,149,77,0.32);
+  }
+  .btn:not(.primary):hover{border-color:var(--accent); color:var(--accent); box-shadow:inset 0 1px 0 rgba(255,255,255,0.08), 0 10px 20px rgba(0,0,0,0.25);}
 
   /* SECTIONS */
   section{padding:68px 0; border-top:1px solid var(--line);}
@@ -151,8 +169,18 @@
   .about-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:48px;}
   .about-grid p{color:var(--muted); font-size:15px; margin-bottom:16px;}
   .factcard{
-    background:var(--card); border:1px solid var(--line); padding:22px 24px; margin-bottom:16px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.22);
+    background:
+      linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01) 40%, rgba(0,0,0,0.04)),
+      var(--glass);
+    backdrop-filter:blur(14px) saturate(130%);
+    -webkit-backdrop-filter:blur(14px) saturate(130%);
+    border:1px solid rgba(255,255,255,0.07);
+    padding:22px 24px; margin-bottom:16px;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.06),
+      inset 0 -1px 0 rgba(0,0,0,0.2),
+      0 2px 4px rgba(0,0,0,0.2),
+      0 16px 32px rgba(0,0,0,0.3);
   }
   .factcard .flabel{
     font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--accent);
@@ -174,12 +202,29 @@
   .subhead:first-of-type{margin-top:0;}
   .pgrid{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
   .pcard{
-    background:var(--card); border:1px solid var(--line); padding:24px 26px;
+    background:
+      linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01) 40%, rgba(0,0,0,0.04)),
+      var(--glass);
+    backdrop-filter:blur(14px) saturate(130%);
+    -webkit-backdrop-filter:blur(14px) saturate(130%);
+    border:1px solid rgba(255,255,255,0.07); padding:24px 26px;
     position:relative; overflow:hidden;
-    box-shadow:0 8px 20px rgba(0,0,0,0.22);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.06),
+      inset 0 -1px 0 rgba(0,0,0,0.2),
+      0 2px 4px rgba(0,0,0,0.2),
+      0 16px 32px rgba(0,0,0,0.3);
     transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease;
   }
-  .pcard:hover{transform:translateY(-3px); box-shadow:0 14px 28px rgba(0,0,0,0.3); border-color:#3A4F43;}
+  .pcard:hover{
+    transform:translateY(-4px);
+    border-color:rgba(255,255,255,0.14);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.09),
+      inset 0 -1px 0 rgba(0,0,0,0.2),
+      0 4px 8px rgba(0,0,0,0.25),
+      0 24px 44px rgba(0,0,0,0.4);
+  }
   .pcard::before{
     content:''; position:absolute; inset:0; pointer-events:none;
     background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(224,149,77,0.13), transparent 65%);
@@ -236,9 +281,18 @@
 
   /* PUBLICATIONS */
   .pub-card{
-    background:var(--card); border:1px solid var(--line); padding:24px 26px;
+    background:
+      linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01) 40%, rgba(0,0,0,0.04)),
+      var(--glass);
+    backdrop-filter:blur(14px) saturate(130%);
+    -webkit-backdrop-filter:blur(14px) saturate(130%);
+    border:1px solid rgba(255,255,255,0.07); padding:24px 26px;
     display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap;
-    box-shadow:0 8px 20px rgba(0,0,0,0.22);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.06),
+      inset 0 -1px 0 rgba(0,0,0,0.2),
+      0 2px 4px rgba(0,0,0,0.2),
+      0 16px 32px rgba(0,0,0,0.3);
   }
   .pub-card h3{font-size:16px; margin-bottom:8px;}
   .pub-card p{color:var(--muted); font-size:14px; margin:0; max-width:560px;}
@@ -275,7 +329,7 @@
 
   @media (max-width:760px){
     .hero{grid-template-columns:1fr; text-align:left;}
-    .hero img{width:180px; height:220px;}
+    .photo-frame{width:180px; height:220px;}
     .about-grid, .pgrid, .stack-grid{grid-template-columns:1fr;}
     .hero h1{font-size:36px;}
 
@@ -294,7 +348,6 @@
 <body>
 
 <canvas id="bg-canvas"></canvas>
-<div id="spotlight"></div>
 
 <nav>
   <div class="inner">
@@ -316,7 +369,10 @@
 <div class="wrap">
 
   <header class="hero" id="home">
-    <img src="profile.jpg" alt="Rakib Rayhan">
+    <div class="photo-frame">
+      <img src="profile.jpg" alt="Rakib Rayhan">
+      <div class="photo-sheen"></div>
+    </div>
     <div>
       <h1>Rakib Rayhan</h1>
       <div class="role">Undergraduate Student, North South University</div>
@@ -339,6 +395,7 @@
         <p>I'm an undergraduate student in the Department of Electrical and Computer Engineering (ECE) at North South University, majoring in Computer Science and Engineering (CSE), focused on digital systems, embedded systems, and computer architecture. My work centers on Field-Programmable Gate Arrays (FPGAs) — building processors as real, synthesizable hardware and verifying them against the behavior they're meant to implement, rather than stopping at simulation.</p>
         <p>Alongside RTL design and Electronic Design Automation (EDA) workflows, I'm increasingly interested in Artificial Intelligence and Machine Learning — specifically how learned models eventually have to run on real, resource-constrained hardware, and what that implies for the architectures underneath them. My thesis work on a multi-cycle processor, and its extension into a pipelined design, is the foundation for that direction.</p>
         <p>I like problems where a design either works on the board or it doesn't — there's no ambiguity once it's on silicon.</p>
+        <p>I'm preparing to pursue graduate research building on this foundation, with a focus on the intersection of computer architecture and machine learning — specifically, how hardware can be designed to make intelligent systems more efficient at the silicon level. I welcome the opportunity to discuss potential research fit and collaboration with faculty working in these areas.</p>
       </div>
       <div>
         <div class="factcard reveal">
@@ -348,7 +405,7 @@
           <div class="fsub">North South University · 2022 – 2026 (Expected)</div>
         </div>
         <div class="factcard reveal">
-          <div class="flabel">INTERESTS</div>
+          <div class="flabel">RESEARCH INTERESTS</div>
           <div class="tags">
             <span class="tag">FPGA</span>
             <span class="tag">RTL Design</span>
@@ -506,7 +563,7 @@
 
   <section id="contact" class="contact">
     <div class="seclabel">06 — CONTACT</div>
-    <h2>Open to research, FPGA projects, and conversations about computer architecture.</h2>
+    <h2>Open to discussing research fit, potential supervision, and collaboration in computer architecture and hardware-aware machine learning.</h2>
     <div class="contact-list">
       <a href="mailto:rakib.rayhan@northsouth.edu">rakib.rayhan@northsouth.edu</a>
     </div>
@@ -599,12 +656,12 @@
       sctx.clearRect(0, 0, w, h);
 
       // faint die floorplan blocks
-      sctx.strokeStyle = 'rgba(111,169,140,0.10)';
+      sctx.strokeStyle = 'rgba(111,169,140,0.06)';
       sctx.lineWidth = 1;
       blocks.forEach(b => sctx.strokeRect(b.x + 0.5, b.y + 0.5, b.w, b.h));
 
       // Manhattan trace lines
-      sctx.strokeStyle = 'rgba(111,169,140,0.14)';
+      sctx.strokeStyle = 'rgba(111,169,140,0.09)';
       sctx.lineWidth = 1;
       paths.forEach(p => {
         sctx.beginPath();
@@ -651,7 +708,7 @@
             const t = p.progress - k * 0.035;
             if (t < 0) continue;
             const pt = pointAtT(p, easeInOutQuad(Math.min(1, t)));
-            const alpha = (1 - k / 4) * 0.85 * edgeFade;
+            const alpha = (1 - k / 4) * 0.6 * edgeFade;
             ctx.fillStyle = `rgba(${color},${alpha})`;
             ctx.beginPath();
             ctx.arc(pt.x, pt.y, k === 0 ? 2.2 : 1.3, 0, Math.PI * 2);
@@ -679,15 +736,6 @@
     }
   })();
 
-  // Cursor-following spotlight
-  const spotlightEl = document.getElementById('spotlight');
-  window.addEventListener('mousemove', (e) => {
-    spotlightEl.style.setProperty('--sx', e.clientX + 'px');
-    spotlightEl.style.setProperty('--sy', e.clientY + 'px');
-    spotlightEl.style.opacity = '1';
-  }, { passive: true });
-  window.addEventListener('mouseleave', () => { spotlightEl.style.opacity = '0'; });
-
   // Nav compacting on scroll
   const navEl = document.querySelector('nav');
   function handleNavScroll() {
@@ -696,20 +744,6 @@
   }
   window.addEventListener('scroll', handleNavScroll, { passive: true });
   handleNavScroll();
-
-  // 3D tilt on hero photo
-  const heroImg = document.querySelector('.hero img');
-  if (heroImg && window.matchMedia('(hover: hover)').matches) {
-    heroImg.addEventListener('mousemove', (e) => {
-      const rect = heroImg.getBoundingClientRect();
-      const px = (e.clientX - rect.left) / rect.width - 0.5;
-      const py = (e.clientY - rect.top) / rect.height - 0.5;
-      heroImg.style.transform = `perspective(700px) rotateY(${px * 12}deg) rotateX(${-py * 12}deg) scale(1.03)`;
-    });
-    heroImg.addEventListener('mouseleave', () => {
-      heroImg.style.transform = 'perspective(700px) rotateY(0deg) rotateX(0deg) scale(1)';
-    });
-  }
 
   // Animated count-up numbers
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
