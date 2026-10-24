@@ -3,873 +3,543 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rakib Rayhan — CSE Undergraduate, North South University</title>
-<meta name="description" content="Rakib Rayhan — undergraduate Computer Science and Engineering (CSE) student at North South University specializing in RTL design, FPGA processor implementation, and hardware verification.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rakib Rayhan — CSE Undergraduate, North South University">
-<meta property="og:description" content="Undergraduate CSE student specializing in RTL design, FPGA processor implementation, and hardware verification.">
+<title>Md. Rakib Rayhan — Computer Architecture &amp; FPGA</title>
+<meta name="description" content="Md. Rakib Rayhan — Research Assistant, Microprocessor, Embedded Systems, and IoT Lab (MESIL), North South University. BSc in Computer Science and Engineering. Research in computer architecture, RTL design and FPGA processor implementation.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Md. Rakib Rayhan — Computer Architecture &amp; FPGA">
+<meta property="og:description" content="Processor design, RTL verification and FPGA implementation.">
 <meta property="og:url" content="https://mrakibrayhan.github.io/">
-<meta property="og:image" content="https://mrakibrayhan.github.io/profile.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Rakib Rayhan — CSE Undergraduate, North South University">
-<meta name="twitter:description" content="Undergraduate CSE student specializing in RTL design, FPGA processor implementation, and hardware verification.">
-<meta name="twitter:image" content="https://mrakibrayhan.github.io/profile.jpg">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F1F1A'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='30' font-weight='700' fill='%23E0954D' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
+<meta property="og:image" content="https://mrakibrayhan.github.io/portrait.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23151D1A'/%3E%3Ctext x='32' y='43' font-family='Georgia, serif' font-size='30' fill='%23D08A55' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0B1612;
-    --bg2:#0F1F1A;
-    --card:#142821;
-    --line:#26392F;
-    --text:#F3F5F2;
-    --muted:#9FB3A9;
-    --accent:#E0954D;
-    --accent-soft:#6FA98C;
-    --glass:rgba(20,40,33,0.58);
+    --bg:#0F1513;
+    --surface:#141C19;
+    --surface-2:#18221E;
+    --line:#25302B;
+    --line-soft:#1D2723;
+    --text:#E9EBE7;
+    --muted:#A7B1AB;
+    --faint:#7E8A84;
+    --accent:#D08A55;
+    --accent-soft:rgba(208,138,85,0.12);
+    --serif:'Source Serif 4', 'Iowan Old Style', Georgia, serif;
+    --sans:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --mono:'JetBrains Mono', ui-monospace, Menlo, monospace;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-padding-top:76px;}
+  html.smooth{scroll-behavior:smooth;}
   body{
-    margin:0;
-    background:
-      radial-gradient(1400px 900px at 50% -12%, rgba(255,255,255,0.04), transparent 60%),
-      var(--bg);
-    color:var(--text);
-    font-family:'Inter', sans-serif;
-    line-height:1.65;
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:var(--sans); font-size:16px; line-height:1.7;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
   }
-  .wrap{max-width:980px; margin:0 auto; padding:0 32px;}
+  #bg-canvas{position:fixed; inset:0; width:100%; height:100%; z-index:0; pointer-events:none;}
+  nav, main, footer{position:relative; z-index:1;}
 
-  #bg-canvas{
-    position:fixed; inset:0; width:100%; height:100%;
-    z-index:0; pointer-events:none; display:block;
+  a{color:var(--accent); text-decoration:none;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px;}
+  /* text links: underline draws in on hover */
+  main p a, .meta a, .pub a{
+    background-image:linear-gradient(currentColor,currentColor);
+    background-size:0% 1px; background-position:0 100%; background-repeat:no-repeat;
+    transition:background-size .25s ease;
   }
-  nav, .wrap{position:relative; z-index:1;}
+  main p a:hover, .meta a:hover, .pub a:hover{background-size:100% 1px;}
 
-  h1,h2,h3{font-family:'Space Grotesk', sans-serif; margin:0;}
-  h1,.sechead{text-wrap:balance;}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 32px;}
 
   /* NAV */
-  nav{
-    position:sticky; top:0; z-index:50;
-    background:rgba(11,22,18,0.78);
-    backdrop-filter:blur(14px) saturate(140%);
-    -webkit-backdrop-filter:blur(14px) saturate(140%);
-    border-bottom:1px solid rgba(255,255,255,0.06);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);
-  }
-  nav .inner{
-    max-width:980px; margin:0 auto; padding:18px 32px; position:relative;
-    display:flex; justify-content:space-between; align-items:center;
-    transition:padding .25s ease;
-  }
-  nav.scrolled .inner{padding:11px 32px;}
-  nav.scrolled{box-shadow:0 8px 20px rgba(0,0,0,0.25);}
-  .brand{font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:19px; letter-spacing:-0.01em; transition:font-size .25s ease;}
-  nav.scrolled .brand{font-size:17px;}
-  .brand span{color:var(--accent);}
+  nav{position:sticky; top:0; z-index:10; background:rgba(15,21,19,0.94); border-bottom:1px solid var(--line);}
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:62px;}
+  .brand{font-family:var(--serif); font-size:19px; font-weight:600; color:var(--text); letter-spacing:-0.005em;}
   .navlinks{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
-  .navlinks a{
-    color:var(--muted); text-decoration:none; font-size:13px;
-    letter-spacing:0.06em; text-transform:uppercase; font-weight:500;
-    transition:color .15s;
-  }
-  .navlinks a:hover, .navlinks a.active{color:var(--accent);}
-
-  .nav-indicator{
-    position:absolute; bottom:0; height:2px; left:0; width:0;
-    background:var(--accent); border-radius:2px;
-    transition:left .35s cubic-bezier(.22,1,.36,1), width .35s cubic-bezier(.22,1,.36,1), opacity .2s;
-    opacity:0;
-  }
-
-  .navtoggle{
-    display:none; background:none; border:1px solid var(--line);
-    color:var(--text); width:38px; height:38px; cursor:pointer;
-    font-size:18px; line-height:1; align-items:center; justify-content:center;
-  }
+  .navlinks a{position:relative; display:block; color:var(--muted); font-size:14px; padding:20px 0; transition:color .2s;}
+  .navlinks a::after{content:''; position:absolute; left:0; right:0; bottom:-1px; height:2px; background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform .3s ease;}
+  .navlinks a:hover{color:var(--text);}
+  .navlinks a.active{color:var(--text);}
+  .navlinks a.active::after{transform:scaleX(1);}
+  .navtoggle{display:none; background:none; border:1px solid var(--line); color:var(--text); width:38px; height:38px; font-size:17px; cursor:pointer; border-radius:4px;}
 
   /* HERO */
-  .hero{
-    padding:92px 0 72px;
-    display:grid; grid-template-columns:260px 1fr; gap:56px; align-items:center;
-    background:
-      radial-gradient(1100px 520px at 10% -10%, rgba(224,149,77,0.12), transparent 60%),
-      radial-gradient(900px 520px at 95% 0%, rgba(111,169,140,0.10), transparent 60%);
-    margin:0 -32px; padding-left:32px; padding-right:32px;
-  }
-  .photo-frame{
-    position:relative; width:260px; height:320px;
-    border:1px solid rgba(255,255,255,0.1);
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,0.1),
-      0 2px 4px rgba(0,0,0,0.25),
-      0 18px 36px rgba(0,0,0,0.4);
-    transition:transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease;
-    will-change:transform;
-  }
-  .photo-frame:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,0.14), 0 4px 8px rgba(0,0,0,0.3), 0 28px 50px rgba(0,0,0,0.5);}
-  .photo-frame img{width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(15%);}
-  .photo-sheen{
-    position:absolute; inset:0; pointer-events:none;
-    background:linear-gradient(135deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.03) 30%, transparent 55%);
-  }
-  .kicker{
-    font-family:'JetBrains Mono', monospace; font-size:12.5px;
-    color:var(--accent); letter-spacing:0.08em; margin-bottom:18px;
-  }
-  .hero h1{font-size:48px; line-height:1.1; margin-bottom:10px;}
-  .hero .role{font-size:17px; color:var(--muted); margin-bottom:20px; max-width:480px;}
-  .skill-badges{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px;}
-  .skill-badges span{
-    font-family:'JetBrains Mono', monospace; font-size:11.5px; color:var(--accent-soft);
-    border:1px solid rgba(255,255,255,0.08); background:rgba(111,169,140,0.09);
-    backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,0.06);
-    padding:6px 13px; border-radius:20px; letter-spacing:0.03em;
-  }
-  .hero p.pitch{color:var(--muted); font-size:15px; max-width:520px; margin-bottom:26px;}
-  .btnrow{display:flex; gap:14px;}
+  .hero{display:grid; grid-template-columns:210px 1fr; gap:52px; align-items:center; padding:84px 0 72px;}
+  .portrait{position:relative;}
+  .portrait img{width:210px; height:262px; object-fit:cover; display:block; border-radius:3px;}
+  .portrait::after{content:''; position:absolute; inset:0; border:1px solid rgba(255,255,255,0.08); border-radius:3px; pointer-events:none;}
+  h1{font-family:var(--serif); font-weight:600; font-size:46px; line-height:1.1; margin:0 0 14px; letter-spacing:-0.015em;}
+  .role{margin:0 0 4px; font-size:16.5px;}
+  .role strong{color:var(--accent); font-weight:600;}
+  .affil{color:var(--muted); margin:0 0 24px; font-size:15.5px;}
+  .lede{margin:0 0 28px; max-width:600px; font-size:17px; line-height:1.65;}
+  .hero-btns{display:flex; flex-wrap:wrap; gap:12px;}
+  .btn{display:inline-block; font-size:14.5px; font-weight:500; padding:10px 24px; border:1px solid var(--line); border-radius:4px; color:var(--text); background:var(--surface); transition:border-color .2s, color .2s, background-color .2s, transform .2s;}
+  .btn:hover{border-color:var(--accent); color:var(--accent); transform:translateY(-1px);}
+  .btn.primary{background:var(--accent); border-color:var(--accent); color:#1B1008;}
+  .btn.primary:hover{background:#DC9A68; border-color:#DC9A68; color:#1B1008;}
 
-  .hl{color:var(--accent); font-weight:600;}
-  .counter{font-variant-numeric:tabular-nums;}
-  .btn{
-    display:inline-block;
-    font-family:'JetBrains Mono', monospace; font-size:12.5px; font-weight:500;
-    letter-spacing:0.04em; text-decoration:none; padding:12px 20px;
-    border:1px solid rgba(255,255,255,0.08); color:var(--text);
-    background:linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0));
-    box-shadow:inset 0 1px 0 rgba(255,255,255,0.06), 0 1px 2px rgba(0,0,0,0.2);
-    transition:background .15s, color .15s, border-color .15s, transform .2s cubic-bezier(.22,1,.36,1), box-shadow .2s ease;
-  }
-  .btn:hover{transform:translateY(-2px);}
-  .btn.primary{
-    background:linear-gradient(180deg, #ECA568, var(--accent));
-    color:#2A1403; border-color:rgba(255,255,255,0.25); font-weight:600;
-    box-shadow:inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -2px 5px rgba(0,0,0,0.12), 0 8px 18px rgba(224,149,77,0.22);
-  }
-  .btn.primary:hover{
-    background:linear-gradient(180deg, #F2B37C, #EBA05F);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,0.45), inset 0 -2px 5px rgba(0,0,0,0.12), 0 12px 26px rgba(224,149,77,0.32);
-  }
-  .btn:not(.primary):hover{border-color:var(--accent); color:var(--accent); box-shadow:inset 0 1px 0 rgba(255,255,255,0.08), 0 10px 20px rgba(0,0,0,0.25);}
+  /* one-time hero entrance */
+  @keyframes rise{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:none;}}
+  .rise{animation:rise .8s cubic-bezier(.2,.7,.2,1) both; animation-delay:calc(var(--i, 0) * 90ms);}
 
-  /* SECTIONS */
-  section{padding:68px 0; border-top:1px solid var(--line);}
-  .seclabel{
-    font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--accent);
-    letter-spacing:0.08em; margin-bottom:10px;
-  }
-  .sechead{font-size:30px; margin-bottom:28px; max-width:620px;}
+  /* SECTIONS: label column + content column */
+  section{display:grid; grid-template-columns:190px 1fr; column-gap:56px; padding:60px 0; border-top:1px solid var(--line);}
+  section > h2{font-family:var(--serif); font-weight:600; font-size:22px; line-height:1.3; margin:2px 0 20px; color:var(--text); letter-spacing:-0.005em;}
+  .body{min-width:0;}
+  h3{font-size:16.5px; font-weight:600; margin:0 0 6px; line-height:1.45;}
+  p{margin:0 0 16px;}
+  .body > p:last-child{margin-bottom:0;}
+  .muted{color:var(--muted);}
+  strong{font-weight:600; color:var(--text);}
+  .sub{font-size:13px; font-weight:600; color:var(--faint); letter-spacing:0.02em; margin:34px 0 12px;}
+  .sub:first-child, .code-note + .sub{margin-top:0;}
+  .code-note{font-size:14px; color:var(--faint); margin:0 0 26px;}
 
-  /* ABOUT */
-  .about-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:48px;}
-  .about-grid p{color:var(--muted); font-size:15px; margin-bottom:16px;}
-  .factcard{
-    background:
-      linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01) 40%, rgba(0,0,0,0.04)),
-      var(--glass);
-    backdrop-filter:blur(14px) saturate(130%);
-    -webkit-backdrop-filter:blur(14px) saturate(130%);
-    border:1px solid rgba(255,255,255,0.07);
-    padding:22px 24px; margin-bottom:16px;
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,0.06),
-      inset 0 -1px 0 rgba(0,0,0,0.2),
-      0 2px 4px rgba(0,0,0,0.2),
-      0 16px 32px rgba(0,0,0,0.3);
-  }
-  .factcard .flabel{
-    font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--accent);
-    letter-spacing:0.08em; margin-bottom:10px;
-  }
-  .factcard .fmain{font-weight:600; font-size:15px; margin-bottom:3px;}
-  .factcard .fsub{color:var(--muted); font-size:13.5px; margin-top:2px;}
-  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;}
-  .tag{
-    font-family:'JetBrains Mono', monospace; font-size:11.5px;
-    border:1px solid var(--line); padding:6px 11px; color:var(--muted);
-  }
+  .directions{margin:-6px 0 16px; padding-left:20px;}
+  .directions li{margin-bottom:4px;}
+  .directions li::marker{color:var(--accent);}
+  .interests{display:flex; flex-wrap:wrap; gap:8px; margin:0; padding:0; list-style:none;}
+  .interests li{font-size:14px; border:1px solid var(--line); background:var(--surface); padding:5px 12px; border-radius:4px;}
 
-  /* PROJECTS */
-  .subhead{
-    font-family:'JetBrains Mono', monospace; font-size:13px; color:var(--accent-soft);
-    letter-spacing:0.05em; margin:36px 0 16px; text-transform:uppercase;
-  }
-  .subhead:first-of-type{margin-top:0;}
-  .pgrid{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
-  .pcard{
-    background:
-      linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01) 40%, rgba(0,0,0,0.04)),
-      var(--glass);
-    backdrop-filter:blur(14px) saturate(130%);
-    -webkit-backdrop-filter:blur(14px) saturate(130%);
-    border:1px solid rgba(255,255,255,0.07); padding:24px 26px;
-    position:relative; overflow:hidden;
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,0.06),
-      inset 0 -1px 0 rgba(0,0,0,0.2),
-      0 2px 4px rgba(0,0,0,0.2),
-      0 16px 32px rgba(0,0,0,0.3);
-    transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease;
-  }
-  .pcard:hover{
-    transform:translateY(-4px);
-    border-color:rgba(255,255,255,0.14);
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,0.09),
-      inset 0 -1px 0 rgba(0,0,0,0.2),
-      0 4px 8px rgba(0,0,0,0.25),
-      0 24px 44px rgba(0,0,0,0.4);
-  }
-  .pcard::before{
-    content:''; position:absolute; inset:0; pointer-events:none;
-    background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(224,149,77,0.13), transparent 65%);
-    opacity:0; transition:opacity .25s ease;
-  }
-  .pcard:hover::before{opacity:1;}
-  .pcard h3{font-size:16.5px; margin-bottom:10px;}
-  .pcard p{color:var(--muted); font-size:14px; margin-bottom:14px;}
-  .pcard .ptags{display:flex; flex-wrap:wrap; gap:6px;}
-  .pcard .ptags span{
-    font-family:'JetBrains Mono', monospace; font-size:10.5px;
-    color:var(--accent-soft); border:1px solid var(--line); padding:3px 8px;
-  }
-  .pcard .plink{
-    display:inline-block; margin-top:14px;
-    font-family:'JetBrains Mono', monospace; font-size:12px;
-    color:var(--accent); text-decoration:none; border-bottom:1px solid transparent;
-  }
-  .pcard .plink:hover{border-bottom-color:var(--accent);}
-  .ghost-card{
-    border:1px dashed var(--line); padding:24px 26px;
-    color:var(--muted); font-size:13.5px; font-family:'JetBrains Mono', monospace;
-  }
-
-  /* TECH STACK */
-  .stack-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:36px;}
-  .stack-col h4{
-    font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--accent);
-    letter-spacing:0.08em; margin-bottom:16px; text-transform:uppercase;
-  }
-  .stack-col div{
-    font-size:14.5px; padding:9px 0; border-bottom:1px solid var(--line); color:var(--text);
-  }
-
-  /* JOURNEY */
-  .timeline{border-left:1px solid var(--line); padding-left:28px; position:relative;}
-  .timeline-progress{
-    position:absolute; left:-1px; top:0; width:2px; height:0%;
-    background:var(--accent); box-shadow:0 0 8px rgba(224,149,77,0.55);
-    transition:height .12s linear;
-  }
-  .titem{margin-bottom:34px; position:relative;}
-  .titem:last-child{margin-bottom:0;}
-  .titem::before{
-    content:""; position:absolute; left:-33px; top:4px;
-    width:9px; height:9px; border-radius:50%; background:var(--accent);
-  }
-  .tyear{font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--accent); margin-bottom:5px;}
-  .titem h3{font-size:15.5px; margin-bottom:5px;}
-  .titem p{color:var(--muted); font-size:14px; margin:0;}
-  .journey-photo{
-    width:100%; max-width:480px; margin-top:14px; border:1px solid var(--line);
-  }
+  .facts{display:grid; grid-template-columns:110px 1fr; gap:12px 24px; margin:30px 0 0; padding-top:24px; border-top:1px solid var(--line-soft); font-size:15px;}
+  .facts dt{color:var(--faint);}
+  .facts dd{margin:0;}
 
   /* PUBLICATIONS */
-  .pub-card{
-    background:
-      linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01) 40%, rgba(0,0,0,0.04)),
-      var(--glass);
-    backdrop-filter:blur(14px) saturate(130%);
-    -webkit-backdrop-filter:blur(14px) saturate(130%);
-    border:1px solid rgba(255,255,255,0.07); padding:24px 26px;
-    display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap;
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,0.06),
-      inset 0 -1px 0 rgba(0,0,0,0.2),
-      0 2px 4px rgba(0,0,0,0.2),
-      0 16px 32px rgba(0,0,0,0.3);
-  }
-  .pub-card h3{font-size:16px; margin-bottom:8px;}
-  .pub-card p{color:var(--muted); font-size:14px; margin:0; max-width:560px;}
-  .status-pill{
-    font-family:'JetBrains Mono', monospace; font-size:11px;
-    border:1px solid var(--accent-soft); color:var(--accent);
-    padding:5px 12px; white-space:nowrap;
-  }
+  .pub{padding:4px 0 4px 20px; border-left:2px solid var(--accent);}
+  .pub .title{font-weight:600; font-size:16.5px; margin-bottom:3px;}
+  .pub .venue{color:var(--muted); font-size:15px;}
+  .status{display:inline-block; font-size:12.5px; color:var(--accent); background:var(--accent-soft); padding:1px 9px; border-radius:3px; margin-left:6px; vertical-align:1px;}
+
+  /* PROJECTS */
+  .project{padding:20px 0; border-bottom:1px solid var(--line-soft);}
+  .project:last-child{border-bottom:none; padding-bottom:0;}
+  .project p{color:var(--muted); font-size:15px; margin:0 0 10px; max-width:680px;}
+  .project h3 .note{font-weight:400; color:var(--faint);}
+  .meta{display:flex; flex-wrap:wrap; align-items:center; gap:6px 16px; font-family:var(--mono); font-size:12px; color:var(--faint);}
+  .meta a{font-family:var(--sans); font-size:13.5px;}
+  .meta a.viewbtn{margin-left:auto; font-size:13px; font-weight:500; padding:3px 14px; border:1px solid var(--line); border-radius:4px; background-image:none; color:var(--accent); transition:border-color .2s, background-color .2s;}
+  .labtag{margin-left:auto; font-family:var(--sans); font-size:12.5px; font-weight:600; letter-spacing:0.02em; color:var(--accent); background:var(--accent-soft); border:1px solid rgba(208,138,85,0.35); padding:3px 12px; border-radius:4px;}
+  .meta a.viewbtn:hover{border-color:var(--accent); background-color:var(--accent-soft);}
+
+  /* TIMELINE */
+  .timeline{list-style:none; margin:0; padding:0;}
+  .timeline li{display:grid; grid-template-columns:64px 1fr; gap:20px; padding:16px 0; border-bottom:1px solid var(--line-soft);}
+  .timeline li:first-child{padding-top:0;}
+  .timeline li:last-child{border-bottom:none; padding-bottom:0;}
+  .timeline .yr{font-family:var(--mono); font-size:13px; color:var(--accent); padding-top:2px;}
+  .timeline p{color:var(--muted); font-size:15px; margin:0;}
+  figure{margin:14px 0 2px;}
+  figure img{width:100%; height:auto; max-width:340px; display:block; border-radius:3px; border:1px solid var(--line);}
+  figcaption{font-size:13px; color:var(--faint); margin-top:7px;}
+
+  /* SKILLS */
+  .skills{display:grid; grid-template-columns:170px 1fr; gap:12px 24px; font-size:15px; margin:0;}
+  .skills dt{color:var(--faint);}
+  .skills dd{margin:0;}
 
   /* CONTACT */
-  .contact h2{font-size:34px; max-width:640px; margin-bottom:24px;}
-  .contact-list{display:flex; flex-direction:column; gap:10px; margin-bottom:30px;}
-  .contact-list a{color:var(--text); font-size:17px; text-decoration:none; font-family:'JetBrains Mono', monospace;}
-  .contact-list a:hover{color:var(--accent);}
-  .social-row{display:flex; gap:12px; flex-wrap:wrap;}
-  .social-row a{
-    font-family:'JetBrains Mono', monospace; font-size:12.5px;
-    border:1px solid var(--line); padding:10px 18px; color:var(--muted);
-    text-decoration:none; transition:all .15s;
-  }
-  .social-row a:hover{border-color:var(--accent); color:var(--accent);}
+  .contact-icons{display:flex; flex-wrap:wrap; gap:12px; margin-top:8px;}
+  .contact-icons a{display:inline-flex; align-items:center; gap:10px; padding:10px 18px; border:1px solid var(--line); border-radius:4px; background:var(--surface); color:var(--text); font-size:14.5px; font-weight:500; transition:border-color .2s, color .2s, transform .2s;}
+  .contact-icons a:hover{border-color:var(--accent); color:var(--accent); transform:translateY(-1px);}
+  .contact-icons svg{width:18px; height:18px; flex:none; color:var(--accent);}
 
-  footer{
-    padding:32px 0 48px; border-top:1px solid var(--line);
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
-    font-family:'JetBrains Mono', monospace; font-size:11.5px; color:var(--muted);
-  }
+  footer{border-top:1px solid var(--line); padding:28px 0 44px; font-size:13px; color:var(--faint);}
+  footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;}
 
-  .reveal{opacity:0; transform:translateY(18px); transition:opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1);}
-  .reveal.visible{opacity:1; transform:translateY(0);}
+  /* sections fade in once */
+  .fade{opacity:0; transform:translateY(12px); transition:opacity .8s ease, transform .8s ease;}
+  .fade.in{opacity:1; transform:none;}
+
   @media (prefers-reduced-motion: reduce){
-    .reveal{opacity:1; transform:none; transition:none;}
+    html.smooth{scroll-behavior:auto;}
+    .rise{animation:none;}
+    .fade{opacity:1; transform:none; transition:none;}
+    *{transition:none !important;}
   }
 
-  @media (max-width:760px){
-    .hero{grid-template-columns:1fr; text-align:left;}
-    .photo-frame{width:180px; height:220px;}
-    .about-grid, .pgrid, .stack-grid{grid-template-columns:1fr;}
-    .hero h1{font-size:36px;}
-
-    .navtoggle{display:flex;}
-    .navlinks{
-      display:none; position:absolute; top:100%; left:0; right:0;
-      flex-direction:column; gap:0; background:var(--bg2);
-      border-bottom:1px solid var(--line); padding:8px 32px 16px;
-    }
+  @media (max-width:820px){
+    section{grid-template-columns:1fr; padding:48px 0;}
+    section > h2{margin-bottom:18px;}
+  }
+  @media (max-width:720px){
+    .wrap{padding:0 22px;}
+    .hero{grid-template-columns:1fr; gap:26px; padding:44px 0 52px;}
+    .portrait img{width:150px; height:188px;}
+    h1{font-size:36px;}
+    .lede{font-size:16px;}
+    .facts, .skills{grid-template-columns:1fr; gap:2px 0;}
+    .facts dd, .skills dd{margin-bottom:12px;}
+    .timeline li{grid-template-columns:1fr; gap:2px;}
+    .navtoggle{display:block;}
+    .navlinks{display:none; position:absolute; top:62px; left:0; right:0; flex-direction:column; gap:0; background:var(--surface); border-bottom:1px solid var(--line); padding:6px 22px 14px;}
     .navlinks.open{display:flex;}
-    .navlinks a{padding:12px 0; border-bottom:1px solid var(--line);}
-    .navlinks li:last-child a{border-bottom:none;}
+    .navlinks a{padding:11px 0; border-bottom:1px solid var(--line-soft);}
+    .navlinks a::after{display:none;}
+    .navlinks a.active{color:var(--accent);}
+  }
+
+  @media print{
+    :root{--bg:#fff; --surface:#fff; --surface-2:#f4f4f4; --line:#ccc; --line-soft:#e3e3e3; --text:#111; --muted:#333; --faint:#555; --accent:#8a4a1c;}
+    #bg-canvas, nav, .hero-btns, figure, .meta a{display:none !important;}
+    .fade, .rise{opacity:1 !important; transform:none !important; animation:none !important;}
+    section{break-inside:avoid; padding:24px 0;}
+    .hero{padding:10px 0 24px;}
+    .contact-icons a::after{content:' ' attr(title); font-weight:400;}
   }
 </style>
 </head>
 <body>
 
-<canvas id="bg-canvas"></canvas>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
 
 <nav>
-  <div class="inner">
-    <div class="brand">Rakib <span>Rayhan</span></div>
+  <div class="wrap">
+    <a class="brand" href="#top">Md. Rakib Rayhan</a>
     <ul class="navlinks" id="navlinks">
-      <li><a href="#home">Home</a></li>
+      <li><a href="#top">Home</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#stack">Tech Stack</a></li>
-      <li><a href="#journey">Journey</a></li>
       <li><a href="#publications">Publications</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#activities">Activities</a></li>
+      <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <span class="nav-indicator" id="navIndicator"></span>
-    <button class="navtoggle" id="navtoggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks">☰</button>
+    <button class="navtoggle" id="navtoggle" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks">☰</button>
   </div>
 </nav>
 
-<div class="wrap">
+<main class="wrap" id="top">
 
-  <header class="hero" id="home">
-    <div class="photo-frame">
-      <img src="profile.jpg" alt="Rakib Rayhan">
-      <div class="photo-sheen"></div>
-    </div>
+  <header class="hero">
+    <div class="portrait rise" style="--i:0"><img src="portrait.jpg" width="480" height="600" alt="Portrait of Md. Rakib Rayhan"></div>
     <div>
-      <h1>Rakib Rayhan</h1>
-      <div class="role">Undergraduate Student, North South University</div>
-      <div class="skill-badges">
-        <span>FPGA</span><span>RTL Design</span><span>EDA</span><span>Embedded Systems</span><span>Computer Architecture</span><span>AI</span><span>Machine Learning</span>
-      </div>
-      <p class="pitch">Specializing in <span class="hl">RTL design</span>, I build and verify processors as working hardware on FPGAs — not merely in simulation — and I'm extending that foundation toward how intelligent systems can be implemented closer to silicon.</p>
-      <div class="btnrow">
-        <a href="#projects" class="btn primary">View Projects</a>
-        <a href="#contact" class="btn">Get in Touch</a>
+      <h1 class="rise" style="--i:1">Md. Rakib Rayhan</h1>
+      <p class="role rise" style="--i:2"><strong>Research Assistant</strong> · Microprocessor, Embedded Systems, and IoT Lab (MESIL)</p>
+      <p class="affil rise" style="--i:2">BSc in Computer Science and Engineering · North South University</p>
+      <p class="lede rise" style="--i:3">I design processors in RTL and verify them as working hardware on low-cost FPGAs. I have built MIPS, RISC-V and ARM cores, each from single-cycle to pipelined, and compared the microarchitectures of each on a single board.</p>
+      <div class="hero-btns rise" style="--i:4">
+        <a class="btn primary" href="#projects">Projects</a>
+        <a class="btn" href="#contact">Contact</a>
+        <a class="btn" href="Md_Rakib_Rayhan_CV.pdf" target="_blank" rel="noopener">CV</a>
       </div>
     </div>
   </header>
 
-  <section id="about">
-    <div class="seclabel">01 — ABOUT</div>
-    <h2 class="sechead">Where RTL design meets <span class="hl">real silicon</span>.</h2>
-    <div class="about-grid">
-      <div>
-        <p>I'm an undergraduate student in the Department of Electrical and Computer Engineering (ECE) at North South University, majoring in Computer Science and Engineering (CSE), focused on digital systems, embedded systems, and computer architecture. My work centers on Field-Programmable Gate Arrays (FPGAs) — building processors as real, synthesizable hardware and verifying them against the behavior they're meant to implement, rather than stopping at simulation.</p>
-        <p>Alongside RTL design and Electronic Design Automation (EDA) workflows, I'm increasingly interested in Artificial Intelligence and Machine Learning — specifically how learned models eventually have to run on real, resource-constrained hardware, and what that implies for the architectures underneath them. My thesis work on a multi-cycle processor, and its extension into a pipelined design, is the foundation for that direction.</p>
-        <p>I like problems where a design either works on the board or it doesn't — there's no ambiguity once it's on silicon.</p>
-        <p>I'm preparing to pursue graduate research building on this foundation, with a focus on the intersection of computer architecture and machine learning — specifically, how hardware can be designed to make intelligent systems more efficient at the silicon level. I welcome the opportunity to discuss potential research fit and collaboration with faculty working in these areas.</p>
-      </div>
-      <div>
-        <div class="factcard reveal">
-          <div class="flabel">EDUCATION</div>
-          <div class="fmain">BSc in Computer Science and Engineering (CSE)</div>
-          <div class="fsub">Dept. of Electrical and Computer Engineering (ECE)</div>
-          <div class="fsub">North South University · 2022 – 2026 (Expected)</div>
-        </div>
-        <div class="factcard reveal">
-          <div class="flabel">RESEARCH INTERESTS</div>
-          <div class="tags">
-            <span class="tag">FPGA</span>
-            <span class="tag">RTL Design</span>
-            <span class="tag">EDA</span>
-            <span class="tag">Embedded Systems</span>
-            <span class="tag">Computer Architecture</span>
-            <span class="tag">Artificial Intelligence</span>
-            <span class="tag">Machine Learning</span>
-          </div>
-        </div>
+  <section id="about" class="fade">
+    <h2>About</h2>
+    <div class="body">
+      <p>I am a final-year undergraduate in Computer Science and Engineering (Department of Electrical and Computer Engineering) at North South University and a <strong>Research Assistant</strong> at the Microprocessor, Embedded Systems, and IoT Lab (MESIL). My work is in computer architecture and digital design: I write processors in RTL, implement them on FPGAs, and verify that the hardware behaves as the instruction set specifies.</p>
+      <p>My undergraduate thesis was the RTL design and hardware verification of a multi-cycle MIPS processor. Since then, I have built a pipelined MIPS processor; RISC-V cores, from a single-cycle RV32I design to multi-cycle and pipelined RV32IM; and ARM cores in single-cycle, multi-cycle and pipelined form. All of these cores share one low-cost Intel Cyclone IV board, where fitting each design into a small logic-element budget is the main engineering constraint. For each architecture, I compared how the single-cycle, multi-cycle and pipelined designs behave in hardware on that board.</p>
+      <p>For my higher study, I want to continue in <strong>computer architecture</strong>, <strong>RTL design &amp; verification</strong> and <strong>FPGA systems</strong>, focusing on:</p>
+      <ul class="directions">
+        <li>How design choices such as pipelining trade area against performance on small hardware</li>
+        <li>How ARM and RISC-V compare in real implementation cost</li>
+        <li>Faster, more reliable RTL design and verification</li>
+      </ul>
+      <p>My earlier machine learning work also gives me a secondary interest in hardware for machine learning. I would welcome a conversation with faculty working in these areas.</p>
+
+      <div class="sub" style="margin-top:30px;">Research interests</div>
+      <ul class="interests">
+        <li>Computer architecture</li>
+        <li>RTL design &amp; verification</li>
+        <li>FPGA systems</li>
+        <li>Electronic design automation</li>
+        <li>Embedded systems</li>
+        <li>Hardware for machine learning</li>
+      </ul>
+
+      <dl class="facts">
+        <dt>Education</dt>
+        <dd><strong>BSc in Computer Science and Engineering</strong><br><span class="muted">Dept. of Electrical and Computer Engineering, North South University · 2022 – 2026 (expected)</span></dd>
+        <dt>Thesis</dt>
+        <dd>RTL Design and Hardware Verification of a Multi-Cycle Processor on a Low-Cost FPGA Development Board <span class="muted">· defended 2026</span></dd>
+        <dt>Position</dt>
+        <dd><strong>Research Assistant</strong>, Microprocessor, Embedded Systems, and IoT Lab (MESIL)</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section id="publications" class="fade">
+    <h2>Publications</h2>
+    <div class="body">
+      <div class="pub">
+        <div class="title">Design and Hardware Verification of a 32-Bit Multi-Cycle MIPS Processor on a Low-Cost Cyclone IV FPGA</div>
+        <div class="venue"><strong>Md. Rakib Rayhan</strong>, Mhod Atik Akbar Rahat, Adnin Hossain, A F Dhrubo, Mohammad Abdul Qayum, Mohsin Sajjad. Submitted to the International Conference on Computer and Information Technology (ICCIT 2026). <span class="status">Submitted</span></div>
       </div>
     </div>
   </section>
 
-  <section id="projects">
-    <div class="seclabel">02 — PROJECTS</div>
-    <h2 class="sechead">Processors, built and verified on real hardware.</h2>
+  <section id="projects" class="fade">
+    <h2>Projects</h2>
+    <div class="body">
+      <p class="code-note">Source code: <a href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">github.com/mrakibrayhan</a></p>
+      <div class="sub">Recent projects</div>
 
-    <div class="subhead">Recent Projects — FPGA / Processor Design</div>
-    <div class="pgrid">
-      <div class="pcard reveal">
-        <h3>MIPS Single-Cycle CPU on FPGA</h3>
-        <p>Designed and implemented a single-cycle MIPS CPU on a low-cost FPGA development board — the foundation that led into the multi-cycle and pipelined designs that followed.</p>
-        <div class="ptags"><span>Verilog</span><span>MIPS ISA</span><span>FPGA</span></div>
-        <a class="plink" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+      <div class="project">
+        <h3>ARM microarchitecture comparison study</h3>
+        <p>Comparison of single-cycle, multi-cycle and pipelined ARM cores, all implemented on the same low-cost FPGA board: the RZ-EasyFPGA A2.2 with an Intel Cyclone IV E (EP4CE6E22C8). Building every core on one small device makes the trade-offs between the microarchitectures directly comparable. Toward a journal paper.</p>
+        <div class="meta"><span>Verilog · ARM · Cyclone IV · Microarchitecture</span><span class="labtag">MESIL Lab&rsquo;s Research Project</span></div>
       </div>
-      <div class="pcard reveal">
-        <h3>MIPS Multi-Cycle CPU on FPGA — Thesis Project</h3>
+      <div class="project">
+        <h3>RISC-V microarchitecture comparison study</h3>
+        <p>Comparison of single-cycle, multi-cycle and pipelined RISC-V cores (RV32I and RV32IM), all implemented on the same low-cost FPGA board: the RZ-EasyFPGA A2.2 with an Intel Cyclone IV E (EP4CE6E22C8). Building every core on one small device makes the trade-offs between the microarchitectures directly comparable. Toward a journal paper.</p>
+        <div class="meta"><span>Verilog · RISC-V · Cyclone IV · Microarchitecture</span><span class="labtag">MESIL Lab&rsquo;s Research Project</span></div>
+      </div>
+      <div class="project">
+        <h3>MIPS microarchitecture comparison study</h3>
+        <p>Comparison of single-cycle, multi-cycle and pipelined MIPS cores, all implemented on the same low-cost FPGA board: the RZ-EasyFPGA A2.2 with an Intel Cyclone IV E (EP4CE6E22C8). Building every core on one small device makes the trade-offs between the microarchitectures directly comparable. Toward a journal paper.</p>
+        <div class="meta"><span>Verilog · MIPS · Cyclone IV · Microarchitecture</span><span class="labtag">MESIL Lab&rsquo;s Research Project</span></div>
+      </div>
+      <div class="project">
+        <h3>ARM pipelined processor</h3>
+        <p>Pipelined ARM processor, completing the ARM series on the same Cyclone IV board used for the RISC-V study, so the ARM and RISC-V implementations can be compared on identical hardware.</p>
+        <div class="meta"><span>Verilog · ARM · Cyclone IV · Pipelining</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
+      </div>
+      <div class="project">
+        <h3>ARM multi-cycle processor</h3>
+        <p>Multi-cycle ARM processor implemented and verified on the same low-cost FPGA board as the other cores.</p>
+        <div class="meta"><span>Verilog · ARM · Cyclone IV</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
+      </div>
+      <div class="project">
+        <h3>ARM single-cycle processor (ARMv4 subset)</h3>
+        <p>Single-cycle ARM processor implementing an ARMv4 instruction subset, the first of the ARM cores, built on the same Cyclone IV board as the RISC-V study.</p>
+        <div class="meta"><span>Verilog · ARM · ARMv4 · Cyclone IV</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
+      </div>
+      <div class="project">
+        <h3>RISC-V pipelined CPU (RV32IM)</h3>
+        <p>Pipelined processor implementing the RV32IM instruction set, including multiply and divide, on the RISC-V architecture, built on a low-cost FPGA development board alongside the single-cycle and multi-cycle cores.</p>
+        <div class="meta"><span>Verilog · RISC-V · RV32IM · Pipelining</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
+      </div>
+      <div class="project">
+        <h3>RISC-V multi-cycle CPU (RV32IM)</h3>
+        <p>Multi-cycle RISC-V core supporting the RV32IM instruction set, including multiply and divide, on a low-cost FPGA development board. The main challenge was fitting the full design within the board's very limited logic elements.</p>
+        <div class="meta"><span>Verilog · RISC-V · RV32IM</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
+      </div>
+      <div class="project">
+        <h3>RISC-V single-cycle CPU (RV32I)</h3>
+        <p>Single-cycle RISC-V core covering the RV32I base integer instruction set on FPGA, extending the processor work beyond MIPS.</p>
+        <div class="meta"><span>Verilog · RISC-V · RV32I</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
+      </div>
+      <div class="project">
+        <h3>Pipelined MIPS CPU</h3>
+        <p>Extension of the multi-cycle design into a pipelined MIPS processor on a Cyclone IV FPGA board. Under consideration for a journal paper.</p>
+        <div class="meta"><span>Verilog · MIPS · Cyclone IV</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
+      </div>
+      <div class="project">
+        <h3>Multi-cycle MIPS CPU <span class="note">· undergraduate thesis</span></h3>
         <p>RTL design and hardware verification of a multi-cycle MIPS processor on FPGA. Presented at the National Innovation Fair 2026.</p>
-        <div class="ptags"><span>Verilog</span><span>RTL</span><span>Hardware Verification</span></div>
-        <a class="plink" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+        <div class="meta"><span>Verilog · RTL · Hardware verification</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
       </div>
-      <div class="pcard reveal">
-        <h3>MIPS Pipelined CPU on FPGA</h3>
-        <p>Extended the multi-cycle design into a pipelined MIPS CPU on a Cyclone IV FPGA board. Being considered for a journal publication.</p>
-        <div class="ptags"><span>Verilog</span><span>Pipelining</span><span>Cyclone IV</span></div>
-        <a class="plink" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+      <div class="project">
+        <h3>Single-cycle MIPS CPU</h3>
+        <p>Single-cycle MIPS processor on a low-cost FPGA development board; the starting point for the multi-cycle and pipelined designs.</p>
+        <div class="meta"><span>Verilog · MIPS · FPGA</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
       </div>
-      <div class="pcard reveal">
-        <h3>RISC-V Single-Cycle CPU — RV32I on FPGA</h3>
-        <p>Implemented a single-cycle RISC-V CPU covering the RV32I base integer instruction set on FPGA, extending the processor-design work beyond MIPS.</p>
-        <div class="ptags"><span>Verilog</span><span>RISC-V</span><span>RV32I</span></div>
-        <a class="plink" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-      </div>
-      <div class="pcard reveal">
-        <h3>RISC-V Multi-Cycle CPU — RV32IM on FPGA</h3>
-        <p>Implemented a multi-cycle RISC-V CPU supporting the RV32IM instruction set (base integer plus multiply/divide) on a low-cost FPGA development board. The central challenge was fitting the full design within the board's very limited logic-element budget, which drove careful datapath and control-unit design.</p>
-        <div class="ptags"><span>Verilog</span><span>RISC-V</span><span>RV32IM</span><span>Resource Optimization</span></div>
-        <a class="plink" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-      </div>
-    </div>
 
-    <div class="subhead">Past Projects</div>
-    <div class="pgrid">
-      <div class="pcard reveal">
-        <h3>Psychological Distress Self-Assessment via Machine Learning</h3>
-        <p>Multi-class classification of anxiety, stress and depression levels in university students from survey data — full pipeline from preprocessing and EDA through modelling and hyperparameter tuning, benchmarked across 15 algorithms.</p>
-        <div class="ptags"><span>Machine Learning</span><span>Classification</span><span>Python</span></div>
-        <a class="plink" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+      <div class="sub">Past projects</div>
+
+      <div class="project">
+        <h3>32-bit single-cycle MIPS processor with operating system <span class="note">· CSE332L</span></h3>
+        <p>A 32-bit single-cycle processor on a custom MIPS-like instruction set, with separate instruction and data memories and support for arithmetic, logical, memory and control-flow instructions, including JAL and JR for subroutine calls. Includes a C++ assembler and a minimal operating system in MIPS assembly that computes the maximum, minimum and mean of ten integers using modular subroutines. Verified in ModelSim.</p>
+        <div class="meta"><span>Verilog · C++ · MIPS assembly · ModelSim</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
       </div>
-      <div class="pcard reveal">
-        <h3>Knowledge Distillation for Rice Variety Classification</h3>
-        <p>Fine-grained classification of 20 Bangladeshi rice varieties using a teacher–student knowledge-distillation framework: a ResNet50 teacher (<span class="hl"><span class="counter" data-target="98.59" data-suffix="%">0%</span> accuracy</span>) distilled into a lightweight custom CNN student (<span class="hl"><span class="counter" data-target="96.06" data-suffix="%">0%</span> accuracy</span>, <span class="hl"><span class="counter" data-target="13.31" data-suffix="×">0×</span> fewer parameters</span>, 1.25 ms/image on GPU). Verified with Grad-CAM.</p>
-        <div class="ptags"><span>Deep Learning</span><span>Knowledge Distillation</span><span>CNN</span><span>Grad-CAM</span></div>
-        <a class="plink" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+      <div class="project">
+        <h3>23-bit single-cycle MIPS CPU <span class="note">· CSE332</span></h3>
+        <p>A single-cycle CPU designed in Logisim around a self-defined 23-bit MIPS-inspired instruction set, with the complete datapath, control unit and ALU control logic, plus a Python assembler that turns assembly programs into hex machine code for the instruction memory.</p>
+        <div class="meta"><span>Logisim · Python · Computer architecture</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
       </div>
-      <div class="pcard reveal">
+
+      <div class="project">
+        <h3>Knowledge distillation for fine-grained rice variety classification</h3>
+        <p>Teacher–student framework for classifying 20 Bangladeshi rice varieties. A ResNet50 teacher reached <strong>98.59%</strong> test accuracy; a lightweight custom CNN student reached <strong>96.06%</strong> with <strong>13.31× fewer parameters</strong> (23.55M → 1.77M) and 1.25 ms/image GPU latency. Grad-CAM confirmed attention on grain features rather than background.</p>
+        <div class="meta"><span>Deep learning · Knowledge distillation · Grad-CAM</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
+      </div>
+      <div class="project">
+        <h3>Self-assessment of psychological distress from educational stress</h3>
+        <p>Hybrid machine-learning approach for multi-class classification of anxiety, stress and depression levels in university students from survey data, comparing 15 algorithms with full preprocessing and hyperparameter tuning.</p>
+        <div class="meta"><span>Python · Classification</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
+      </div>
+      <div class="project">
+        <h3>Custom memory allocator</h3>
+        <p>malloc/free implementation in C built on Linux system calls, with an optimized block-reuse strategy and thread-safe concurrent access, benchmarked against an alternative reuse strategy and stress-tested under multi-threaded load.</p>
+        <div class="meta"><span>C · Linux · Concurrency</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
+      </div>
+      <div class="project">
         <h3>SneakPick</h3>
-        <p>A Django e-commerce web application for browsing and buying sneakers — product catalog, user accounts, cart, order tracking with shipping and delivery estimates, checkout/payment flow, promotions, and product reviews.</p>
-        <div class="ptags"><span>Django</span><span>Python</span><span>Web Dev</span></div>
-        <a class="plink" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+        <p>Django e-commerce application with product catalog, user accounts, cart, order tracking, shipping options, checkout, promotions and reviews.</p>
+        <div class="meta"><span>Django · Python</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
       </div>
-      <div class="pcard reveal">
-        <h3>Custom Memory Allocator</h3>
-        <p>A hand-built malloc/free implementation in C using real Linux system calls, with an optimized block-reuse strategy and thread-safe concurrent access — benchmarked against alternative reuse strategies and stress-tested under multi-threaded load.</p>
-        <div class="ptags"><span>C</span><span>Linux Syscalls</span><span>Concurrency</span></div>
-        <a class="plink" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+      <div class="project">
+        <h3>Football Club Management System</h3>
+        <p>Full-stack web application for managing football club operations, with secure user authentication, management modules for clubs, managers, coaches, players, matches and stadiums, and an administrative dashboard.</p>
+        <div class="meta"><span>PHP · MySQL · HTML · CSS</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
       </div>
-    </div>
-  </section>
-
-  <section id="stack">
-    <div class="seclabel">03 — TECH STACK</div>
-    <h2 class="sechead">Tools.</h2>
-    <div class="stack-grid">
-      <div class="stack-col">
-        <h4>RTL &amp; EDA</h4>
-        <div>Verilog</div>
-        <div>VHDL</div>
-        <div>Quartus</div>
-        <div>ModelSim</div>
-        <div>Questa</div>
+      <div class="project">
+        <h3>Wedding Management System</h3>
+        <p>Console-based Java application for planning and booking wedding packages (venue, food and decoration, with an optional photographer) across three regions of Bangladesh, with admin tools for managing employees and staff teams.</p>
+        <div class="meta"><span>Java</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
       </div>
-      <div class="stack-col">
-        <h4>Programming</h4>
-        <div>C</div>
-        <div>C++</div>
-        <div>Python</div>
-        <div>Java</div>
+      <div class="project">
+        <h3>SUROKKHA: COVID-19 vaccine management system</h3>
+        <p>Console-based C system, named after Bangladesh’s national vaccine registration initiative, for registering citizens, checking registration status and correcting details, with admin tools to view registrations and update vaccination records.</p>
+        <div class="meta"><span>C</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
+      </div>
+      <div class="project">
+        <h3>Banking simulator</h3>
+        <p>Console-based mobile financial service simulator in C, with user login, money transfers, bill payments, transaction history, balance tracking and a reward-points system redeemable for cash.</p>
+        <div class="meta"><span>C</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
       </div>
     </div>
   </section>
 
-  <section id="journey">
-    <div class="seclabel">04 — JOURNEY</div>
-    <h2 class="sechead">Timeline.</h2>
-    <div class="timeline">
-      <div class="timeline-progress" id="timelineProgress"></div>
-      <div class="titem reveal">
-        <div class="tyear">2022</div>
-        <h3>Started BSc, Dept. of ECE</h3>
-        <p>Began undergraduate studies in Computer Science and Engineering (CSE), Dept. of ECE, at North South University.</p>
-      </div>
-      <div class="titem reveal">
-        <div class="tyear">2023</div>
-        <h3>BD Apps National Hackathon 2023</h3>
-        <p>Participated and was selected to compete at the regional round.</p>
-      </div>
-      <div class="titem reveal">
-        <div class="tyear">2025</div>
-        <h3>Organizer — Future Builders: AI-Driven Cognitive Innovation Hackathon</h3>
-        <p>Helped organize this hackathon held at NSU, run by the IEEE NSU Student Branch.</p>
-        <img class="journey-photo" src="hackathon.jpg" alt="Future Builders hackathon, organized with IEEE NSU Student Branch">
-      </div>
-      <div class="titem reveal">
-        <div class="tyear">2025</div>
-        <h3>Organizer — Student Professional Awareness Conference (SPAC-25)</h3>
-        <p>Helped organize SPAC-25, held by the IEEE NSU Student Branch.</p>
-        <img class="journey-photo" src="spac.jpg" alt="Student Professional Awareness Conference (SPAC-25), organized with IEEE NSU Student Branch">
-      </div>
-      <div class="titem reveal">
-        <div class="tyear">2026</div>
-        <h3>Undergraduate Thesis Defended</h3>
-        <p>Successfully defended the undergraduate thesis on RTL design and hardware verification of a multi-cycle processor on FPGA.</p>
-      </div>
-      <div class="titem reveal">
-        <div class="tyear">2026</div>
-        <h3>Bangladesh Innovation Fair 2026</h3>
-        <p>Representing North South University as a member of the MESIL Lab, NSU.</p>
-        <img class="journey-photo" src="innovation-fair.jpg" alt="NSU stall at the Bangladesh Innovation Fair 2026, MESIL Lab team">
-      </div>
-      <div class="titem reveal">
-        <div class="tyear">2026</div>
-        <h3>Expected Graduation</h3>
-        <p>Completing the BSc in Computer Science and Engineering (CSE), Dept. of ECE, at North South University.</p>
+  <section id="activities" class="fade">
+    <h2>Activities and milestones</h2>
+    <div class="body">
+      <ul class="timeline">
+        <li><span class="yr">2026</span><div><h3>Bangladesh Innovation Fair 2026</h3><p>Represented North South University as a Research Assistant at MESIL.</p>
+          <figure><img src="innovation-fair.jpg" width="1600" height="1200" alt="North South University stall at the Bangladesh Innovation Fair 2026" loading="lazy"><figcaption>NSU stall, Bangladesh Innovation Fair 2026</figcaption></figure></div></li>
+        <li><span class="yr">2026</span><div><h3>Undergraduate thesis defended</h3><p>RTL design and hardware verification of a multi-cycle processor on FPGA.</p></div></li>
+        <li><span class="yr">2026</span><div><h3>IEEE Region 10 Outstanding Student Branch Award</h3><p>Received by the IEEE NSU Student Branch in 2026 for its events and activities, during my tenure as Vice Chair (Technical).</p></div></li>
+        <li><span class="yr">2026</span><div><h3>Joined MESIL as a Research Assistant</h3><p>Microprocessor, Embedded Systems, and IoT Lab (MESIL), Department of Electrical and Computer Engineering (ECE), School of Engineering &amp; Physical Sciences (SEPS), North South University.</p></div></li>
+        <li><span class="yr">2025</span><div><h3>Organizer, IEEE Student Transition and Elevation Partnership (STEP) 2025: Igniting Future Innovators</h3><p>IEEE NSU Student Branch.</p></div></li>
+        <li><span class="yr">2025</span><div><h3>Organizer, Student Professional Awareness Conference (SPAC-25)</h3><p>IEEE NSU Student Branch. Organized as Vice Chair (Technical).</p>
+          <figure><img src="spac.jpg" width="1227" height="1073" alt="SPAC-25 organizing team on stage" loading="lazy"><figcaption>SPAC-25, IEEE NSU Student Branch</figcaption></figure></div></li>
+        <li><span class="yr">2025</span><div><h3>Organizer, Future Builders: AI-Driven Cognitive Innovation Hackathon</h3><p>Held at North South University by the IEEE NSU Student Branch, organized as Vice Chair (Technical).</p>
+          <figure><img src="hackathon.jpg" width="1600" height="1066" alt="Organizing team on stage" loading="lazy"><figcaption>Organizing team and guests</figcaption></figure></div></li>
+        <li><span class="yr">2023</span><div><h3>BD Apps National Hackathon 2023</h3><p>Selected for the regional round.</p></div></li>
+        <li><span class="yr">2022</span><div><h3>Began BSc at North South University</h3><p>Computer Science and Engineering, Dept. of Electrical and Computer Engineering.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="skills" class="fade">
+    <h2>Skills</h2>
+    <div class="body">
+      <dl class="skills">
+        <dt>Hardware description</dt><dd>Verilog, VHDL</dd>
+        <dt>EDA tools</dt><dd>Intel Quartus, ModelSim, Questa, Logisim</dd>
+        <dt>Architectures</dt><dd>MIPS, RISC-V (RV32I, RV32IM), ARM</dd>
+        <dt>Programming</dt><dd>C, C++, Python, Java, PHP, MIPS assembly</dd>
+        <dt>Web</dt><dd>HTML, CSS, MySQL, Django</dd>
+        <dt>Machine learning</dt><dd>CNNs, knowledge distillation, classical ML pipelines</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section id="contact" class="fade">
+    <h2>Get in Touch</h2>
+    <div class="body">
+      <p>I am happy to discuss research fit, potential supervision and collaboration in computer architecture, RTL design and FPGA systems.</p>
+      <div class="contact-icons">
+        <a href="mailto:rakib.rayhan@northsouth.edu" aria-label="Email: rakib.rayhan@northsouth.edu" title="rakib.rayhan@northsouth.edu"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg><span>Email</span></a>
+        <a href="https://github.com/mrakibrayhan" target="_blank" rel="noopener" aria-label="GitHub profile" title="github.com/mrakibrayhan"><svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg><span>GitHub</span></a>
+        <a href="https://www.linkedin.com/in/being-rakib" target="_blank" rel="noopener" aria-label="LinkedIn profile" title="linkedin.com/in/being-rakib"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.8c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.52-2.25 3.1V21H9z"/></svg><span>LinkedIn</span></a>
       </div>
     </div>
   </section>
 
-  <section id="publications">
-    <div class="seclabel">05 — PUBLICATIONS</div>
-    <h2 class="sechead">Currently under review.</h2>
-    <div class="pub-card reveal">
-      <div>
-        <h3>Multi-Cycle Processor — RTL Design and Hardware Verification on FPGA</h3>
-        <p>Paper based on the thesis project, submitted to ICCIT 2026. Currently awaiting a decision.</p>
-      </div>
-      <div class="status-pill">Submitted · Awaiting Acceptance</div>
-    </div>
-  </section>
+</main>
 
-  <section id="contact" class="contact">
-    <div class="seclabel">06 — CONTACT</div>
-    <h2>Open to discussing research fit, potential supervision, and collaboration in computer architecture and hardware-aware machine learning.</h2>
-    <div class="contact-list">
-      <a href="mailto:rakib.rayhan@northsouth.edu">rakib.rayhan@northsouth.edu</a>
-    </div>
-    <div class="social-row">
-      <a href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/rakib-rayhan-15122000j" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:rakib.rayhan@northsouth.edu">Email</a>
-    </div>
-  </section>
+<footer>
+  <div class="wrap"><span>© 2026 Md. Rakib Rayhan</span><span>Last updated October 2026</span></div>
+</footer>
 
-  <footer>
-    <div>© 2026 Rakib Rayhan</div>
-    <div>CSE · NORTH SOUTH UNIVERSITY</div>
-  </footer>
-
-</div>
 <script>
-  // Animated semiconductor-die background: Manhattan-routed traces with traveling signal pulses
-  (function() {
-    const canvas = document.getElementById('bg-canvas');
-    const ctx = canvas.getContext('2d');
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const staticCanvas = document.createElement('canvas');
-    const sctx = staticCanvas.getContext('2d');
-    let w, h, paths, blocks;
-    const GRID = 46;
-
-    function pathLength(pts) {
-      let total = 0;
-      for (let i = 1; i < pts.length; i++) total += Math.hypot(pts[i].x - pts[i-1].x, pts[i].y - pts[i-1].y);
-      return total;
-    }
-
-    function pointAtT(path, t) {
-      let target = path.total * Math.max(0, Math.min(1, t));
-      const pts = path.pts;
-      for (let i = 1; i < pts.length; i++) {
-        const segLen = Math.hypot(pts[i].x - pts[i-1].x, pts[i].y - pts[i-1].y);
-        if (target <= segLen || i === pts.length - 1) {
-          const ratio = segLen === 0 ? 0 : target / segLen;
-          return { x: pts[i-1].x + (pts[i].x - pts[i-1].x) * ratio, y: pts[i-1].y + (pts[i].y - pts[i-1].y) * ratio };
-        }
-        target -= segLen;
-      }
-      return pts[pts.length - 1];
-    }
-
-    function buildPaths(count) {
-      const cols = Math.ceil(w / GRID), rows = Math.ceil(h / GRID);
-      const list = [];
-      for (let i = 0; i < count; i++) {
-        let x = Math.floor(Math.random() * cols) * GRID;
-        let y = Math.floor(Math.random() * rows) * GRID;
-        const pts = [{ x, y }];
-        let horizontal = Math.random() < 0.5;
-        const steps = 3 + Math.floor(Math.random() * 5);
-        for (let s = 0; s < steps; s++) {
-          const len = (1 + Math.floor(Math.random() * 4)) * GRID;
-          if (horizontal) x = Math.max(0, Math.min(w, x + (Math.random() < 0.5 ? -len : len)));
-          else y = Math.max(0, Math.min(h, y + (Math.random() < 0.5 ? -len : len)));
-          pts.push({ x, y });
-          horizontal = !horizontal;
-        }
-        list.push({
-          pts,
-          total: pathLength(pts),
-          progress: Math.random() * 1.6,
-          speed: 0.0022 + Math.random() * 0.0028,
-          amber: Math.random() < 0.22
-        });
-      }
-      return list;
-    }
-
-    function buildBlocks(count) {
-      const list = [];
-      for (let i = 0; i < count; i++) {
-        const bw = (3 + Math.floor(Math.random() * 5)) * GRID;
-        const bh = (2 + Math.floor(Math.random() * 4)) * GRID;
-        list.push({
-          x: Math.floor(Math.random() * (w - bw)),
-          y: Math.floor(Math.random() * (h - bh)),
-          w: bw, h: bh
-        });
-      }
-      return list;
-    }
-
-    function drawStatic() {
-      sctx.clearRect(0, 0, w, h);
-
-      // faint die floorplan blocks
-      sctx.strokeStyle = 'rgba(111,169,140,0.06)';
-      sctx.lineWidth = 1;
-      blocks.forEach(b => sctx.strokeRect(b.x + 0.5, b.y + 0.5, b.w, b.h));
-
-      // Manhattan trace lines
-      sctx.strokeStyle = 'rgba(111,169,140,0.09)';
-      sctx.lineWidth = 1;
-      paths.forEach(p => {
-        sctx.beginPath();
-        p.pts.forEach((pt, i) => i === 0 ? sctx.moveTo(pt.x, pt.y) : sctx.lineTo(pt.x, pt.y));
-        sctx.stroke();
-        // vias at turns
-        p.pts.forEach(pt => {
-          sctx.fillStyle = 'rgba(224,149,77,0.22)';
-          sctx.fillRect(pt.x - 1.5, pt.y - 1.5, 3, 3);
-        });
-      });
-
-      // faint grid dots
-      sctx.fillStyle = 'rgba(243,245,242,0.05)';
-      for (let gx = 0; gx < w; gx += GRID) {
-        for (let gy = 0; gy < h; gy += GRID) {
-          sctx.fillRect(gx, gy, 1, 1);
-        }
-      }
-    }
-
-    function resize() {
-      w = canvas.width = staticCanvas.width = window.innerWidth;
-      h = canvas.height = staticCanvas.height = window.innerHeight;
-      const count = Math.min(34, Math.max(10, Math.floor((w * h) / 48000)));
-      paths = buildPaths(count);
-      blocks = buildBlocks(Math.min(8, Math.max(3, Math.floor(count / 5))));
-      drawStatic();
-    }
-
-    function easeInOutQuad(x) {
-      return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
-    }
-
-    function drawFrame() {
+  // Static, faint chip-layout background: drawn once per resize, no continuous animation.
+  (function () {
+    const c = document.getElementById('bg-canvas');
+    const ctx = c.getContext('2d');
+    const G = 48;
+    function draw() {
+      const dpr = window.devicePixelRatio || 1;
+      const w = window.innerWidth, h = window.innerHeight;
+      c.width = w * dpr; c.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, w, h);
-      ctx.drawImage(staticCanvas, 0, 0);
-
-      paths.forEach(p => {
-        if (p.progress >= 0 && p.progress <= 1) {
-          const color = p.amber ? '224,149,77' : '111,169,140';
-          const edgeFade = Math.min(1, p.progress / 0.08, (1 - p.progress) / 0.08);
-          for (let k = 0; k < 4; k++) {
-            const t = p.progress - k * 0.035;
-            if (t < 0) continue;
-            const pt = pointAtT(p, easeInOutQuad(Math.min(1, t)));
-            const alpha = (1 - k / 4) * 0.6 * edgeFade;
-            ctx.fillStyle = `rgba(${color},${alpha})`;
-            ctx.beginPath();
-            ctx.arc(pt.x, pt.y, k === 0 ? 2.2 : 1.3, 0, Math.PI * 2);
-            ctx.fill();
-          }
+      let seed = 7;
+      const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+      const cols = Math.ceil(w / G), rows = Math.ceil(h / G);
+      ctx.strokeStyle = 'rgba(127,165,146,0.055)';
+      ctx.lineWidth = 1;
+      for (let b = 0; b < 5; b++) {
+        const bw = (3 + Math.floor(rnd() * 4)) * G, bh = (2 + Math.floor(rnd() * 3)) * G;
+        ctx.strokeRect(Math.floor(rnd() * cols) * G + .5, Math.floor(rnd() * rows) * G + .5, bw, bh);
+      }
+      ctx.strokeStyle = 'rgba(127,165,146,0.08)';
+      const n = Math.min(26, Math.max(10, Math.floor(w * h / 60000)));
+      for (let i = 0; i < n; i++) {
+        let x = Math.floor(rnd() * cols) * G, y = Math.floor(rnd() * rows) * G, horiz = rnd() < .5;
+        ctx.beginPath(); ctx.moveTo(x, y);
+        const pts = [[x, y]];
+        for (let s = 0; s < 3 + Math.floor(rnd() * 3); s++) {
+          const len = (1 + Math.floor(rnd() * 4)) * G * (rnd() < .5 ? -1 : 1);
+          if (horiz) x = Math.max(0, Math.min(w, x + len)); else y = Math.max(0, Math.min(h, y + len));
+          ctx.lineTo(x, y); pts.push([x, y]); horiz = !horiz;
         }
-      });
+        ctx.stroke();
+        ctx.fillStyle = 'rgba(208,138,85,0.12)';
+        pts.forEach(([px, py]) => ctx.fillRect(px - 1.5, py - 1.5, 3, 3));
+      }
     }
-
-    function step() {
-      paths.forEach(p => {
-        p.progress += p.speed;
-        if (p.progress > 1.6) p.progress = -Math.random() * 0.4;
-      });
-      drawFrame();
-      requestAnimationFrame(step);
-    }
-
-    window.addEventListener('resize', resize);
-    resize();
-    if (reduceMotion) {
-      drawFrame();
-    } else {
-      requestAnimationFrame(step);
-    }
+    let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(draw, 150); });
+    draw();
   })();
 
-  // Nav compacting on scroll
-  const navEl = document.querySelector('nav');
-  function handleNavScroll() {
-    if (window.scrollY > 40) navEl.classList.add('scrolled');
-    else navEl.classList.remove('scrolled');
-  }
-  window.addEventListener('scroll', handleNavScroll, { passive: true });
-  handleNavScroll();
-
-  // Animated count-up numbers
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function animateCounter(el) {
-    const target = parseFloat(el.dataset.target);
-    const suffix = el.dataset.suffix || '';
-    if (prefersReducedMotion) { el.textContent = target + suffix; return; }
-    const duration = 1100;
-    const startTime = performance.now();
-    function tick(now) {
-      const t = Math.min(1, (now - startTime) / duration);
-      const eased = 1 - Math.pow(1 - t, 3);
-      el.textContent = (target * eased).toFixed(2) + suffix;
-      if (t < 1) requestAnimationFrame(tick);
-      else el.textContent = target + suffix;
-    }
-    requestAnimationFrame(tick);
-  }
-  const counterEls = document.querySelectorAll('.counter');
-  if ('IntersectionObserver' in window) {
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          counterObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.6 });
-    counterEls.forEach(el => counterObserver.observe(el));
-  } else {
-    counterEls.forEach(el => animateCounter(el));
-  }
-
-  // Mobile nav toggle
-  const navToggle = document.getElementById('navtoggle');
-  const navLinks = document.getElementById('navlinks');
-  navToggle.addEventListener('click', () => {
-    const isOpen = navLinks.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  // Mobile menu
+  const toggle = document.getElementById('navtoggle');
+  const links = document.getElementById('navlinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   });
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    });
-  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false');
+  }));
 
-  // Scroll-in reveal animation, staggered per sibling group for a cascading entrance
-  const revealEls = document.querySelectorAll('.reveal');
-  revealEls.forEach(el => {
-    const siblings = Array.from(el.parentElement.children).filter(c => c.classList.contains('reveal'));
-    const idx = siblings.indexOf(el);
-    el.style.transitionDelay = (idx % 4) * 90 + 'ms';
-  });
-  if ('IntersectionObserver' in window) {
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-    revealEls.forEach(el => revealObserver.observe(el));
-  } else {
-    revealEls.forEach(el => el.classList.add('visible'));
+  // Sections fade in once. A section is revealed as soon as its top is in (or above) the
+  // viewport, which also covers direct links such as /#contact and late-loading images.
+  const fades = [...document.querySelectorAll('.fade')];
+  function revealVisible() {
+    const h = window.innerHeight;
+    fades.forEach(s => { if (!s.classList.contains('in') && s.getBoundingClientRect().top < h * 0.92) s.classList.add('in'); });
   }
 
-  // Scroll-spy active nav highlighting, with sliding indicator
-  const sections = document.querySelectorAll('section[id], header[id]');
-  const navAnchors = document.querySelectorAll('.navlinks a');
-  const navIndicator = document.getElementById('navIndicator');
-
-  function moveIndicator(link) {
-    if (!link || !navIndicator || window.innerWidth <= 760) return;
-    navIndicator.style.left = link.offsetLeft + 'px';
-    navIndicator.style.width = link.offsetWidth + 'px';
-    navIndicator.style.opacity = '1';
+  // Highlight the current section in the nav (last section wins at the bottom of the page)
+  const navA = [...document.querySelectorAll('.navlinks a')];
+  const secs = [...document.querySelectorAll('section[id]')];
+  let lockUntil = 0;
+  function setActive(id) { navA.forEach(a => a.classList.toggle('active', id !== null && a.getAttribute('href') === '#' + id)); }
+  function spy() {
+    if (performance.now() < lockUntil) return;
+    let current = null;
+    const line = 150;
+    secs.forEach(s => { if (s.getBoundingClientRect().top <= line) current = s.id; });
+    if (current === null) current = 'top';
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) current = secs[secs.length - 1].id;
+    setActive(current);
   }
+  // A clicked link (or a direct link like /#skills) stays highlighted while the page scrolls there
+  function lockTo(id) { if (document.getElementById(id)) { setActive(id); lockUntil = performance.now() + 1200; } }
+  navA.forEach(a => a.addEventListener('click', () => lockTo(a.getAttribute('href').slice(1))));
+  if (location.hash) lockTo(location.hash.slice(1));
 
-  if ('IntersectionObserver' in window) {
-    const spyObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const id = entry.target.getAttribute('id');
-        const link = document.querySelector('.navlinks a[href="#' + id + '"]');
-        if (!link) return;
-        if (entry.isIntersecting) {
-          navAnchors.forEach(a => a.classList.remove('active'));
-          link.classList.add('active');
-          moveIndicator(link);
-        }
-      });
-    }, { threshold: 0, rootMargin: '-45% 0px -50% 0px' });
-    sections.forEach(sec => spyObserver.observe(sec));
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { revealVisible(); spy(); ticking = false; });
   }
-  window.addEventListener('resize', () => moveIndicator(document.querySelector('.navlinks a.active')));
-
-  // Self-drawing timeline progress line
-  const timelineEl = document.querySelector('.timeline');
-  const timelineProgress = document.getElementById('timelineProgress');
-  function updateTimelineProgress() {
-    if (!timelineEl || !timelineProgress) return;
-    const rect = timelineEl.getBoundingClientRect();
-    const trigger = window.innerHeight * 0.75;
-    let progress = (trigger - rect.top) / rect.height;
-    progress = Math.max(0, Math.min(1, progress));
-    timelineProgress.style.height = (progress * 100) + '%';
-  }
-  window.addEventListener('scroll', () => requestAnimationFrame(updateTimelineProgress), { passive: true });
-  window.addEventListener('resize', updateTimelineProgress);
-  updateTimelineProgress();
-
-  // Cursor-following glow on project cards
-  document.querySelectorAll('.pcard').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      card.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100) + '%');
-      card.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100) + '%');
-    });
-  });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  window.addEventListener('load', () => { onScroll(); setTimeout(() => document.documentElement.classList.add('smooth'), 100); });
+  window.addEventListener('hashchange', onScroll);
+  revealVisible(); spy();
 </script>
 </body>
 </html>
