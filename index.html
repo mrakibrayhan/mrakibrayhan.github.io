@@ -103,6 +103,8 @@
   .directions li{margin-bottom:4px;}
   .directions li::marker{color:var(--accent);}
   .interests{display:flex; flex-wrap:wrap; gap:8px; margin:0; padding:0; list-style:none;}
+  .hl{color:var(--accent); font-weight:600;}
+  .interests li.key{border-color:var(--accent); color:var(--accent);}
   .interests li{font-size:14px; border:1px solid var(--line); background:var(--surface); padding:5px 12px; border-radius:4px;}
 
   .facts{display:grid; grid-template-columns:110px 1fr; gap:12px 24px; margin:30px 0 0; padding-top:24px; border-top:1px solid var(--line-soft); font-size:15px;}
@@ -221,7 +223,7 @@
       <h1 class="rise" style="--i:1">Md. Rakib Rayhan</h1>
       <p class="role rise" style="--i:2"><strong>Research Assistant</strong> · Microprocessor, Embedded Systems, and IoT Lab (MESIL)</p>
       <p class="affil rise" style="--i:2">BSc in Computer Science and Engineering · North South University</p>
-      <p class="lede rise" style="--i:3">I design processors in RTL and verify them as working hardware on low-cost FPGAs. I have built MIPS, RISC-V and ARM cores, each from single-cycle to pipelined, and compared the microarchitectures of each on a single board.</p>
+      <p class="lede rise" style="--i:3">I design processors in RTL and verify them as working hardware on <strong class="hl">low-cost FPGAs</strong>. I have built MIPS, RISC-V and ARM cores, each from single-cycle to pipelined, and compared the microarchitectures of each on a single board.</p>
       <div class="hero-btns rise" style="--i:4">
         <a class="btn primary" href="#projects">Projects</a>
         <a class="btn" href="#contact">Contact</a>
@@ -233,7 +235,7 @@
   <section id="about" class="fade">
     <h2>About</h2>
     <div class="body">
-      <p>I am a final-year undergraduate in Computer Science and Engineering (Department of Electrical and Computer Engineering) at North South University and a <strong>Research Assistant</strong> at the Microprocessor, Embedded Systems, and IoT Lab (MESIL). My work is in computer architecture and digital design: I write processors in RTL, implement them on FPGAs, and verify that the hardware behaves as the instruction set specifies.</p>
+      <p>I am a final-year undergraduate in Computer Science and Engineering (Department of Electrical and Computer Engineering) at North South University and a <strong>Research Assistant</strong> at the Microprocessor, Embedded Systems, and IoT Lab (MESIL). My work is in computer architecture and digital design: I write processors in RTL, implement them on <strong>FPGAs</strong>, and verify that the hardware behaves as the instruction set specifies.</p>
       <p>My undergraduate thesis was the RTL design and hardware verification of a multi-cycle MIPS processor. Since then, I have built a pipelined MIPS processor; RISC-V cores, from a single-cycle RV32I design to multi-cycle and pipelined RV32IM; and ARM cores in single-cycle, multi-cycle and pipelined form. All of these cores share one low-cost Intel Cyclone IV board, where fitting each design into a small logic-element budget is the main engineering constraint. For each architecture, I compared how the single-cycle, multi-cycle and pipelined designs behave in hardware on that board.</p>
       <p>For my higher study, I want to continue in <strong>computer architecture</strong>, <strong>RTL design &amp; verification</strong> and <strong>FPGA systems</strong>, focusing on:</p>
       <ul class="directions">
@@ -247,7 +249,7 @@
       <ul class="interests">
         <li>Computer architecture</li>
         <li>RTL design &amp; verification</li>
-        <li>FPGA systems</li>
+        <li class="key">FPGA systems</li>
         <li>Electronic design automation</li>
         <li>Embedded systems</li>
         <li>Hardware for machine learning</li>
@@ -296,47 +298,47 @@
         <div class="meta"><span>Verilog · MIPS · Cyclone IV · Microarchitecture</span><span class="labtag">MESIL Lab&rsquo;s Research Project</span></div>
       </div>
       <div class="project">
-        <h3>ARM pipelined processor</h3>
+        <h3>ARM pipelined processor on FPGA</h3>
         <p>Pipelined ARM processor, completing the ARM series on the same Cyclone IV board used for the RISC-V study, so the ARM and RISC-V implementations can be compared on identical hardware.</p>
         <div class="meta"><span>Verilog · ARM · Cyclone IV · Pipelining</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
       </div>
       <div class="project">
-        <h3>ARM multi-cycle processor</h3>
+        <h3>ARM multi-cycle processor on FPGA</h3>
         <p>Multi-cycle ARM processor implemented and verified on the same low-cost FPGA board as the other cores.</p>
         <div class="meta"><span>Verilog · ARM · Cyclone IV</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
       </div>
       <div class="project">
-        <h3>ARM single-cycle processor (ARMv4 subset)</h3>
+        <h3>ARM single-cycle processor (ARMv4 subset) on FPGA</h3>
         <p>Single-cycle ARM processor implementing an ARMv4 instruction subset, the first of the ARM cores, built on the same Cyclone IV board as the RISC-V study.</p>
         <div class="meta"><span>Verilog · ARM · ARMv4 · Cyclone IV</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
       </div>
       <div class="project">
-        <h3>RISC-V pipelined CPU (RV32IM)</h3>
+        <h3>RISC-V pipelined CPU (RV32IM) on FPGA</h3>
         <p>Pipelined processor implementing the RV32IM instruction set, including multiply and divide, on the RISC-V architecture, built on a low-cost FPGA development board alongside the single-cycle and multi-cycle cores.</p>
         <div class="meta"><span>Verilog · RISC-V · RV32IM · Pipelining</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
       </div>
       <div class="project">
-        <h3>RISC-V multi-cycle CPU (RV32IM)</h3>
+        <h3>RISC-V multi-cycle CPU (RV32IM) on FPGA</h3>
         <p>Multi-cycle RISC-V core supporting the RV32IM instruction set, including multiply and divide, on a low-cost FPGA development board. The main challenge was fitting the full design within the board's very limited logic elements.</p>
         <div class="meta"><span>Verilog · RISC-V · RV32IM</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
       </div>
       <div class="project">
-        <h3>RISC-V single-cycle CPU (RV32I)</h3>
+        <h3>RISC-V single-cycle CPU (RV32I) on FPGA</h3>
         <p>Single-cycle RISC-V core covering the RV32I base integer instruction set on FPGA, extending the processor work beyond MIPS.</p>
         <div class="meta"><span>Verilog · RISC-V · RV32I</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
       </div>
       <div class="project">
-        <h3>Pipelined MIPS CPU</h3>
+        <h3>Pipelined MIPS CPU on FPGA</h3>
         <p>Extension of the multi-cycle design into a pipelined MIPS processor on a Cyclone IV FPGA board. Under consideration for a journal paper.</p>
         <div class="meta"><span>Verilog · MIPS · Cyclone IV</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
       </div>
       <div class="project">
-        <h3>Multi-cycle MIPS CPU <span class="note">· undergraduate thesis</span></h3>
+        <h3>Multi-cycle MIPS CPU on FPGA <span class="note">· undergraduate thesis</span></h3>
         <p>RTL design and hardware verification of a multi-cycle MIPS processor on FPGA. Presented at the National Innovation Fair 2026.</p>
         <div class="meta"><span>Verilog · RTL · Hardware verification</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
       </div>
       <div class="project">
-        <h3>Single-cycle MIPS CPU</h3>
+        <h3>Single-cycle MIPS CPU on FPGA</h3>
         <p>Single-cycle MIPS processor on a low-cost FPGA development board; the starting point for the multi-cycle and pipelined designs.</p>
         <div class="meta"><span>Verilog · MIPS · FPGA</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
       </div>
@@ -344,12 +346,12 @@
       <div class="sub">Past projects</div>
 
       <div class="project">
-        <h3>32-bit single-cycle MIPS processor with operating system <span class="note">· CSE332L</span></h3>
+        <h3>32-bit single-cycle MIPS processor with operating system</h3>
         <p>A 32-bit single-cycle processor on a custom MIPS-like instruction set, with separate instruction and data memories and support for arithmetic, logical, memory and control-flow instructions, including JAL and JR for subroutine calls. Includes a C++ assembler and a minimal operating system in MIPS assembly that computes the maximum, minimum and mean of ten integers using modular subroutines. Verified in ModelSim.</p>
         <div class="meta"><span>Verilog · C++ · MIPS assembly · ModelSim</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
       </div>
       <div class="project">
-        <h3>23-bit single-cycle MIPS CPU <span class="note">· CSE332</span></h3>
+        <h3>23-bit single-cycle MIPS CPU</h3>
         <p>A single-cycle CPU designed in Logisim around a self-defined 23-bit MIPS-inspired instruction set, with the complete datapath, control unit and ALU control logic, plus a Python assembler that turns assembly programs into hex machine code for the instruction memory.</p>
         <div class="meta"><span>Logisim · Python · Computer architecture</span><a class="viewbtn" href="https://github.com/mrakibrayhan" target="_blank" rel="noopener">View project</a></div>
       </div>
@@ -424,6 +426,7 @@
         <dt>Hardware description</dt><dd>Verilog, VHDL</dd>
         <dt>EDA tools</dt><dd>Intel Quartus, ModelSim, Questa, Logisim</dd>
         <dt>Architectures</dt><dd>MIPS, RISC-V (RV32I, RV32IM), ARM</dd>
+        <dt>FPGA</dt><dd>Intel Cyclone IV E (RZ-EasyFPGA A2.2); synthesis and implementation in Intel Quartus; on-board debugging with In-System Sources and Probes (ISSP) and In-System Memory Content Editor</dd>
         <dt>Programming</dt><dd>C, C++, Python, Java, PHP, MIPS assembly</dd>
         <dt>Web</dt><dd>HTML, CSS, MySQL, Django</dd>
         <dt>Machine learning</dt><dd>CNNs, knowledge distillation, classical ML pipelines</dd>
