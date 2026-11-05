@@ -342,6 +342,16 @@
         <p>Single-cycle MIPS processor on a low-cost FPGA development board; the starting point for the multi-cycle and pipelined designs.</p>
         <div class="meta"><span>Verilog · MIPS · FPGA</span><a class="viewbtn" href="https://github.com/mrakibrayhan/mips-single-cycle-processor-on-fpga" target="_blank" rel="noopener">View project</a></div>
       </div>
+      <div class="project">
+        <h3>Fixed-point scaled dot-product attention accelerator</h3>
+        <p>RTL accelerator for the attention operation at the core of transformer models, softmax(QK<sup>T</sup>/&radic;d<sub>k</sub>)&middot;V. One shared 18&times;18 MAC driven by an FSM handles every multiply, with Q8.8 fixed-point data, a LUT-based base-2 softmax that needs only one reciprocal per row, and row streaming so score memory grows as O(N). Verified bit-exact against a Python fixed-point model in Icarus Verilog, and within 1.5 LSB of floating point.</p>
+        <div class="meta"><span>Verilog · AI hardware · Fixed-point · Icarus Verilog</span><a class="viewbtn" href="https://github.com/mrakibrayhan/simple-attention-accelerator" target="_blank" rel="noopener">View project</a></div>
+      </div>
+      <div class="project">
+        <h3>Iterative NTT/INTT accelerator for lattice-based cryptography</h3>
+        <p>Number-theoretic transform core for homomorphic encryption and post-quantum cryptography, built around a single reused butterfly, a Barrett modular multiplier, a twiddle ROM and an FSM address generator. Parameterized from N = 8, q = 17 up to N = 256, q = 7681, and verified against the direct formula, including polynomial multiplication on the hardware.</p>
+        <div class="meta"><span>Verilog · Cryptography hardware · Icarus Verilog</span><a class="viewbtn" href="https://github.com/mrakibrayhan/simple-ntt-accelerator" target="_blank" rel="noopener">View project</a></div>
+      </div>
 
 
       <div class="sub">Past projects</div>
